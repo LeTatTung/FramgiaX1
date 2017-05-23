@@ -1,0 +1,36 @@
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <span class="copyright"><%= t :copyright %> &copy; <%= t :team %></span>
+      </div>
+      <div class="col-md-4">
+        <ul class="list-inline social-buttons">
+          <li>
+            <%= link_to "#" do %>
+              <span class="fa fa-twitter"></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+              <span class="fa fa-facebook"></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+              <span class="fa fa-linkedin"></span>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <ul class="list-inline quicklinks">
+          <li><%= link_to t(:privacy_policy), "#" %>
+          </li>
+          <li><%= link_to t(:terms), "#" %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

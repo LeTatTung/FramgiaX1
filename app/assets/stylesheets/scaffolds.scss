@@ -1,0 +1,120 @@
+$light-grey: #f0f0f0;
+$white-color: #fff;
+$black-light: #333;
+$black-color: #000;
+$gray-light: #eee;
+$dove-gray: #666;
+$red-color: #c00;
+$light-green: #0ac986;
+
+body {
+  background-color: $white-color;
+  color: $black-light;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+p {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  margin: 33px;
+}
+
+ol {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  margin: 33px;
+}
+
+ul {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  margin: 33px;
+}
+
+pre {
+  background-color: $gray-light;
+  font-size: 11px;
+  padding: 10px;
+}
+
+a {
+  color: $black-color;
+
+  &:visited {
+    color: $dove-gray;
+  }
+
+  &:hover {
+    background-color: $black-color;
+    color: $white-color;
+  }
+}
+
+th {
+  padding-bottom: 5px;
+}
+
+td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  margin: 33px;
+  padding-bottom: 7px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+div {
+  &.field {
+    margin-bottom: 10px;
+  }
+
+  &.actions {
+    margin-bottom: 10px;
+  }
+}
+
+.notice {
+  color: $light-green;
+}
+
+.field-with-errors {
+  background-color: $red-color;
+  display: table;
+  padding: 2px;
+}
+
+.error-explanation {
+  background-color: $light-grey;
+  border: 2px solid $red-color;
+  margin-bottom: 20px;
+  padding: 7px;
+  padding-bottom: 0;
+  width: 450px;
+;
+
+  h2 {
+    background-color: $red-color;
+    color: $white-color;
+    font-size: 12px;
+    font-weight: bold;
+    margin: -7px;
+    margin-bottom: 0;
+    padding: 5px 5px 5px 15px;
+    text-align: left;
+  }
+
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+
+label {
+  display: block;
+}

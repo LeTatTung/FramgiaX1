@@ -1,0 +1,18 @@
+<section id="image_share" class="bg-light-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading"><%= t :image_share %></h2>
+        <h3 class="section-subheading text-muted"><%= t :most_image %></h3>
+      </div>
+    </div>
+    <div class="row">
+        <% (1..6).each do |index| %>
+      <div class="col-md-4 col-sm-6 image-share-item">
+          <%= link_to image_tag("image1.jpg", class: "img-responsive"), root_path,
+            class: "image-share-link" %>
+      </div>
+        <% end %>
+    </div>
+  </div>
+</section>

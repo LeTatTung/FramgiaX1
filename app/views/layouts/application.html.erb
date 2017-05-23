@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FramgiaX1</title>
+    <title><%= t :title %></title>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "application", media: "all",
+      "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application",
+      "data-turbolinks-track": "reload" %>
   </head>
 
   <body>
-    <%= yield %>
+    <% if user_signed_in? %>
+      <div class="ltt-header">
+        <%= render "layouts/header" %>
+      </div>
+    <% end %>
+    <div class="container-fluid" id="main">
+      <div class="row">
+        <div id="flash" align="right">
+          <% flash.each do |message_type, message| %>
+            <div class="alert alert-success ltt-flash "><%= message %></div>
+          <% end %>
+        </div>
+        <%= yield %>
+      </div>
+    </div>
+    <footer class="footer">
+      <%= render "layouts/footer" %>
+    </footer>
   </body>
 </html>
