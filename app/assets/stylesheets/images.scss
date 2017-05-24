@@ -1,0 +1,249 @@
+$gray-light: #eee;
+$blue-dark: #365899;
+$black-color: #000;
+$blue-light: #428bca;
+
+.images {
+  box-shadow: 1px 2px 4px 1px $gray-light !important;
+  padding-bottom: 10px;
+  padding-top: 10px;
+
+  .images-modal {
+    margin-top: 50px;
+    max-height: 80vh;
+    max-width: 90%;
+    min-height: 60vh;
+    min-width: 60%;
+
+    .images-show-detail {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  hr {
+    margin: 0 !important;
+    margin-bottom: 5px !important;
+    margin-top: 5px !important;
+  }
+
+  .images-header {
+    margin-bottom: 10px;
+    position: relative;
+  }
+
+  .images-header-content {
+    .images-header-avatar {
+      border: 1px solid $gray-light;
+      display: block;
+      float: left;
+      height: 40px;
+      margin-right: 5px;
+      width: 40px;
+    }
+  }
+
+  .images-header-info {
+    overflow: hidden;
+
+    h6 {
+      color: $blue-dark;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 0 !important;
+      margin-top: 5px !important;
+
+      .image-post-title {
+        color: $black-color;
+        font-size: small;
+        font-weight: 100;
+      }
+    }
+
+    .images-header-user {
+      width: 100%;
+    }
+  }
+
+  .images-header-icon {
+    cursor: pointer;
+    float: right;
+    min-width: 115px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    
+    .icon {
+      float: right;
+      height: 20px;
+      width: 20px;
+    }
+
+    .dropdown-menu {
+      min-width: 145px;
+
+      a:hover {
+        cursor: auto;
+        text-decoration: none !important;
+      }
+
+      li {
+        border-bottom: 1px solid $gray-light;
+        color: $black-color;
+        padding: 7px;
+      }
+    }
+
+    .images-header-option {
+      display: none;
+    }
+  }
+
+  .images-body {
+    .images-body-description {
+      margin-bottom: 10px;
+    }
+
+    .images-body-image {
+      .images-show {
+        cursor: pointer;
+      }
+    }
+
+    .images-body-category {
+      margin-bottom: 10px;
+    }
+  }
+
+  .images-footer {
+    .images-like {
+      cursor: pointer;
+      margin-right: 10px;
+
+      .unlike {
+        color: $black-color;
+      }
+
+      .like {
+        color: $blue-dark;
+      }
+
+      .images-like-icon {
+        height: 23px;
+        padding-bottom: 3px;
+        width: 21px;
+      }
+    }
+  }
+
+  .images-share {
+    cursor: pointer;
+
+    a {
+      color: $black-color !important;
+    }
+
+    a:-webkit-any-link {
+      color: -webkit-link;
+      cursor: auto;
+      text-decoration: inherit;
+    }
+
+    .images-share-icon {
+      height: 20px;
+      width: 20px;
+    }
+  }
+
+  .images-comment {
+    cursor: pointer;
+    margin-right: 10px;
+
+    .images-comment-icon {
+      height: 30px;
+      width: 30px;
+    }
+  }
+
+  .image-comment-edit-form {
+    display: none;
+
+    .comment-edit-btn-cancel {
+      color: $blue-light;
+    }
+  }
+
+  .image-comment-form {
+    display: block;
+
+    .img-avatar-comment {
+      border: 1px solid $gray-light;
+      display: block;
+      float: left;
+      height: 40px !important;
+      margin-right: 10px;
+      width: 40px !important;
+    }
+
+    .comment-form-content {
+      height: 40px !important;
+      overflow: hidden;
+      width: 90%;
+    }
+  }
+}
+
+
+.image-form {
+  .field {
+    margin-bottom: 10px;
+
+    .image-description {
+      min-height: 150px;
+    }
+  }
+
+  .image-image {
+    margin-bottom: 10px;
+
+    .image-panel {
+      border: 1px solid $gray-light;
+      height: 200px;
+      margin-bottom: 10px;
+      margin-right: 10px;
+      width: 100%;
+    }
+
+    .image-file-field {
+      display: inherit;
+    }
+  }
+
+  .actions {
+    float: right;
+
+    .image-btn-cancel {
+      margin-right: 10px;
+    }
+  }
+}
+
+.share-images-modal {
+  .image-image {
+    margin-bottom: 10px;
+  }
+
+  .form-control {
+    margin-bottom: 10px;
+    min-height: 100px;
+  }
+
+  .share-cancel {
+    float: right;
+    margin-right: 5px;
+  }
+
+  .share-submit {
+    float: right;
+  }
+}

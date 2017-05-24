@@ -1,0 +1,36 @@
+<ul>
+  <% unless @popular_images.empty? %>
+    <li>
+      <% @popular_images.each_with_index do |popular_image, index| %>
+        <div class="image-news-feed-populars">
+          <%= link_to "#" do %>
+            <%= image_tag popular_image.image.url, class: "img-responsive
+              image-news-feed-right" %>
+          <% end %>
+          <div>
+            <span title="<%= popular_image.address %>">
+              <%= link_to "#" do %>
+                <%= truncate popular_image.address,
+                  length: Settings.length_address %>
+              <% end %>
+            </span>
+
+            <span class="popular-images-comment">
+              <%= popular_image.comment_number %>
+              コメント
+            </span>
+
+            <span class="popular-images-like">
+              <%= popular_image.like_number %>
+              ライク
+            </span>
+          </div>
+        </div>
+      <% end %>
+    </li>
+  <% else %>
+    <p>
+      <%= t "news_feed.no_content" %>
+    </p>
+  <% end %>
+</ul>

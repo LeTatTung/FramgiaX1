@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     registrations: "registrations"
   }
 
-  root "pages#index"
-  get "/pages/:page", to: "pages#show"
-
+  root "pages#show"
+  resources :popular_images, only: :index
+  resources :follow_users, only: :index
 end
