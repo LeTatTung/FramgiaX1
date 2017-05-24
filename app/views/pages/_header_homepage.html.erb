@@ -16,6 +16,16 @@
         <li class="ltt-header-item" id="_image_share">
           <%= link_to t(:image_share), "#image_share", class: "page-scroll" %>
         </li>
+        <% if user_signed_in? %>
+          <li class="ltt-header-item" id="_signout">
+            <%= link_to t("sessions.sign_out"),
+              destroy_user_session_path, method: :delete, class: "page-scroll" %>
+          </li>
+        <% else %>
+          <li class="ltt-header-item" id="_signin">
+            <%= link_to t("sessions.sign_in"), new_user_session_path %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>

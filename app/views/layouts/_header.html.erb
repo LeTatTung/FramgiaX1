@@ -13,6 +13,10 @@
         <li class="active ltt-header-item" id="_home">
           <%= link_to t(:home), "#home", class: "page-scroll" %>
         </li>
+        <li class="ltt-header-item" id="_signout">
+          <%= link_to t("sessions.sign_out"),
+            destroy_user_session_path, method: :delete, class: "page-scroll" %>
+        </li>
       </ul>
     </div>
   </div>

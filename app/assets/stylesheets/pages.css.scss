@@ -338,10 +338,6 @@ fieldset[disabled] .btn-xl.active {
     padding: 10px 15px;
   }
 
-  .navbar-collapse {
-    border-color: $black-color;
-  }
-
   .navbar-toggle {
     background-color: $yellow-color;
     border-color: $yellow-color;
@@ -351,7 +347,15 @@ fieldset[disabled] .btn-xl.active {
     text-transform: uppercase;
   }
 
-  .nav li a {
+  .nav li {
+    color: $white-color;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .nav a {
     color: $white-color;
     font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 400;
