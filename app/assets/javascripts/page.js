@@ -35,7 +35,7 @@ $(window).on('scroll', function(){
 
   var flash = function(){
     setTimeout(function(){
-      $('ltt.flashx').slideUp(1000);
+      $('.flash').slideUp(1000);
     }, 1500);
   };
   $(document).ready(flash);

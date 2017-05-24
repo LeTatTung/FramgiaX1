@@ -3,9 +3,7 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :trackable, :validatable
 
   has_many :comments, dependent: :destroy
-  has_many :feed_backs, dependent: :destroy
   has_many :images, dependent: :destroy
-  has_one :profile, dependent: :destroy
   has_many :active_relationships, class_name: Relationship.name,
     foreign_key: "follower_id", dependent: :destroy
   has_many :passive_relationships, class_name: Relationship.name,

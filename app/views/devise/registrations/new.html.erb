@@ -1,0 +1,63 @@
+<div class="ltt-header">
+  <%= render "header_signin_signup" %>
+</div>
+<div class="div-signin-signup">
+  <div class="signupbox mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <div class="panel-title"><h1><strong><%= t "signup.sign_up" %></strong></h1></div>
+        <div id="signin-button">
+          <% unless controller_name == "sessions" %>
+            <%= link_to t("sessions.new.title"), new_session_path(resource_name) %><br/>
+          <% end %>
+        </div>
+      </div>
+      <div class="panel-body">
+        <%= form_for resource, as: resource_name,
+          url: registration_path(resource_name),
+          html: {class: "form-horizontal", role: "form"} do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class="form-group">
+            <%= f.label :name, class: "col-md-2 control-label" %>
+            <div class="col-md-9">
+              <%= f.text_field :name, autofocus: true, class: "form-control",
+                placeholder: t("signup.name") %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :email, class: "col-md-2 control-label" %>
+            <div class="col-md-9">
+              <%= f.email_field :email, autofocus: true, class: "form-control",
+                placeholder: t("signup.email") %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :password, class: "col-md-2 control-label", id: "pw-field" %>
+            <div class="col-md-9">
+              <% if @minimum_password_length %>
+                <em class="small">
+                  <%= t "characters_minimum", number: @minimum_password_length %>
+                </em>
+              <% end %>
+              <%= f.password_field :password, autocomplete: "off",
+                class: "form-control signup", placeholder: t("signup.password") %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :password_confirmation, class: "col-md-2 control-label" %>
+            <div class="col-md-9">
+              <%= f.password_field :password_confirmation, autocomplete: "off",
+                class: "form-control signup", placeholder: t("signup.confirmation") %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-offset-4 col-md-9">
+              <%= f.submit t("signup.sign_up"), class: "btn btn-info" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
