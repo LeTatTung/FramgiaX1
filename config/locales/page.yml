@@ -10,3 +10,13 @@ en:
   terms: Terms of Use
   welcome: Welcome To SocialPics System !
   nice_to: It's Nice To Meet You
+  news_feed:
+    edit: "Edit"
+    delete: "Delete"
+    modal_title: "Vi du description ve dia diem"
+    followed_users: "Followed users"
+    popular_images: "Popular images"
+    no_content: "No content"
+  image_action:
+    like: "Like"
+    comment: "Comment"

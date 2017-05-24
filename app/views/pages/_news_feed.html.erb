@@ -1,0 +1,27 @@
+<div class="ltt-news-feed">
+  <div class="col-md-2 ltt-news-feed-left">
+    <h3><%= t "news_feed.followed_users" %></h3>
+    <hr>
+    <div class="news-feed-left-content">
+      <%= render "followed_users" %>
+    </div>
+  </div>
+
+  <div class="col-md-6 col-sm-6 col-xs-6 ltt-news-feed-middle">
+    <div class="news-feed-middle-content">
+      <%= render "image" %>
+    </div>
+  </div>
+
+  <div class="col-md-3 col-sm-3 col-xs-3 ltt-news-feed-right">
+    <h3><%= t "news_feed.popular_images" %></h3>
+    <hr>
+    <div class="news-feed-right-content">
+      <%= render "popular_images" %>
+    </div>
+  </div>
+  <a id="to-top" href="#top" class="btn btn-dark btn-lg">
+    <i class="fa fa-chevron-up fa-fw fa-1x"></i>
+  </a>
+  <div class="clearfix"></div>
+</div>

@@ -4,4 +4,6 @@ class Image < ApplicationRecord
 
   validates :user, presence: true
   validates :category, presence: true
+
+  scope :popular_images, -> {order(like_number: :desc).limit 10}
 end

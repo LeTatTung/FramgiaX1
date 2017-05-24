@@ -1,0 +1,22 @@
+
+<ul>
+  <% if @followings.empty? %>
+    <p>
+      <%= t "news_feed.no_content" %>
+    </p>
+  <% else %>
+    <% @followings.each do |following| %>
+      <%= link_to "#" do %>
+        <li title="<%= current_user.name %>" class="followed-users">
+          <span>
+            <%= image_tag avatar_profile(following),
+              class: "avatar-news-feed-left" %>
+          </span>
+          <span>
+            <%= truncate following.name, length: Settings.length_names %>
+          </span>
+        </li>
+      <% end %>
+    <% end %>
+  <% end %>
+</ul>
