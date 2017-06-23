@@ -40,12 +40,10 @@
 
   <div class="images-body">
     <div class="images-body-description">
-      <%#= image.description %>
       <%= t "news_feed.modal_title" %>
     </div>
     <div class="images-body-image" data-toggle="modal"
       data-target="#images-modal">
-      <%#= image_tag image.image.url, class: "img-responsive images-show" %>
       <%= image_tag "portfolio-1.jpg", class: "img-responsive images-show" %>
     </div>
     <hr>
@@ -64,10 +62,6 @@
     <hr>
   </div>
 
-  <div class="images-comment">
-    <%#= render "comment" %>
-  </div>
-
   <div id="images-modal" class="modal fade" role="dialog">
     <div class="modal-dialog images-modal">
       <div class="modal-content">
@@ -78,8 +72,6 @@
           <h4 class="modal-title"><%= t "news_feed.modal_title" %></h4>
         </div>
         <div class="modal-body">
-          <%#= image_tag image.image.url, class: "img-responsive
-            images-show-detail" %>
           <%= image_tag "portfolio-1.jpg", class: "img-responsive
             images-show-detail" %>
         </div>

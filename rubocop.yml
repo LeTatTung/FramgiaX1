@@ -27,8 +27,6 @@ AllCops:
     - spec/controllers/**
     - spec/**
     - app/models/**
-    - app/controllers/registrations_controller.rb
-    - app/mailers/application_mailer.rb
 # Indent private/protected/public as deep as method definitions
 Layout/AccessModifierIndentation:
   EnforcedStyle: indent

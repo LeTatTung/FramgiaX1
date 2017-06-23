@@ -24,15 +24,5 @@ class User < ApplicationRecord
 
   enum sex: [:male, :female]
 
-  def just_followed
-    following.order(created_at: :desc).limit 10
-  end
-
-  def news_feed
-    Image.all
-  end
-
-  def liked image
-    true
-  end
+  mount_uploader :avatar, AvatarUploader
 end

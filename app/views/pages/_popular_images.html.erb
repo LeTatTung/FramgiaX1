@@ -1,7 +1,7 @@
 <ul>
-  <% unless @popular_images.empty? %>
+  <% if popular_images %>
     <li>
-      <% @popular_images.each_with_index do |popular_image, index| %>
+      <% popular_images.each_with_index do |popular_image, index| %>
         <div class="image-news-feed-populars">
           <%= link_to "#" do %>
             <%= image_tag popular_image.image.url, class: "img-responsive
@@ -17,12 +17,12 @@
 
             <span class="popular-images-comment">
               <%= popular_image.comment_number %>
-              コメント
+              <%= t "image_action.comment" %>
             </span>
 
             <span class="popular-images-like">
               <%= popular_image.like_number %>
-              ライク
+              <%= t "image_action.like" %>
             </span>
           </div>
         </div>
