@@ -8,9 +8,8 @@ class PagesController < ApplicationController
   private
   def load_data
     if user_signed_in?
-      @followings = User.all
+      @followings = current_user.just_followed
       @popular_images = Image.popular_images
-    else
     end
   end
 end

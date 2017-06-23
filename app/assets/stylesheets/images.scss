@@ -72,7 +72,7 @@ $blue-light: #428bca;
     position: absolute;
     right: 0;
     top: 0;
-    
+
     .icon {
       float: right;
       height: 20px;
@@ -190,60 +190,5 @@ $blue-light: #428bca;
       overflow: hidden;
       width: 90%;
     }
-  }
-}
-
-
-.image-form {
-  .field {
-    margin-bottom: 10px;
-
-    .image-description {
-      min-height: 150px;
-    }
-  }
-
-  .image-image {
-    margin-bottom: 10px;
-
-    .image-panel {
-      border: 1px solid $gray-light;
-      height: 200px;
-      margin-bottom: 10px;
-      margin-right: 10px;
-      width: 100%;
-    }
-
-    .image-file-field {
-      display: inherit;
-    }
-  }
-
-  .actions {
-    float: right;
-
-    .image-btn-cancel {
-      margin-right: 10px;
-    }
-  }
-}
-
-.share-images-modal {
-  .image-image {
-    margin-bottom: 10px;
-  }
-
-  .form-control {
-    margin-bottom: 10px;
-    min-height: 100px;
-  }
-
-  .share-cancel {
-    float: right;
-    margin-right: 5px;
-  }
-
-  .share-submit {
-    float: right;
   }
 }

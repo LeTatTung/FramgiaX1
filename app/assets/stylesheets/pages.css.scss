@@ -1,6 +1,6 @@
-@import 'bootstrap-sprockets';
-@import 'bootstrap';
-@import 'font-awesome';
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
 
 $black-color: #222;
 $primary-color: #f8f8f8;
@@ -26,12 +26,9 @@ $gray-light: #eee;
 
 .ltt-home-background {
   background-attachment: scroll;
-  background-image: url('background.png');
+  background-image: url("background.png");
   background-position: center center;
   background-repeat: no-repeat;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  -webkit-background-size: cover;
   background-size: 100% 100%;
   color: $white-color;
   height: 100vh;
@@ -93,7 +90,7 @@ $gray-light: #eee;
 }
 
 .banner {
-  background: url('../img/banner-bg.jpg') no-repeat center center;
+  background: url("../img/banner-bg.jpg") no-repeat center center;
   background-size: cover;
   color: $primary-color;
   padding: 100px 0;
@@ -144,8 +141,6 @@ footer {
     height: 40px;
     line-height: 40px;
     outline: none;
-    -moz-transition: all .3s;
-    -webkit-transition: all .3s;
     transition: all .3s;
     width: 40px;
   }
@@ -164,21 +159,12 @@ footer {
   outline: none;
 }
 
-::-moz-selection {
-  background: $yellow-color;
-  text-shadow: none;
-}
-
 ::selection {
   background: $yellow-color;
   text-shadow: none;
 }
 
 img::selection {
-  background: transparent;
-}
-
-img::-moz-selection {
   background: transparent;
 }
 
@@ -220,25 +206,6 @@ img::-moz-selection {
   background-image: none;
 }
 
-.btn-xl.disabled,
-.btn-xl[disabled],
-fieldset[disabled] .btn-xl,
-.btn-xl.disabled:hover,
-.btn-xl[disabled]:hover,
-fieldset[disabled] .btn-xl:hover,
-.btn-xl.disabled:focus,
-.btn-xl[disabled]:focus,
-fieldset[disabled] .btn-xl:focus,
-.btn-xl.disabled:active,
-.btn-xl[disabled]:active,
-fieldset[disabled] .btn-xl:active,
-.btn-xl.disabled.active,
-.btn-xl[disabled].active,
-fieldset[disabled] .btn-xl.active {
-  background-color: $yellow-color;
-  border-color: $yellow-color;
-}
-
 .td-about-image img {
   width: 100%;
 }
@@ -273,8 +240,6 @@ fieldset[disabled] .btn-xl.active {
     height: 100%;
     opacity: 0;
     position: absolute;
-    -moz-transition: all ease .5s;
-    -webkit-transition: all ease .5s;
     transition: all ease .5s;
     width: 100%;
 
@@ -381,15 +346,11 @@ fieldset[disabled] .btn-xl.active {
     background-color: transparent;
     border: 0;
     padding: 25px 0;
-    -moz-transition: padding .3s;
-    -webkit-transition: padding .3s;
     transition: padding .3s;
   }
 
   .navbar-custom .navbar-brand {
     font-size: 2em;
-    -moz-transition: all .3s;
-    -webkit-transition: all .3s;
     transition: all .3s;
   }
 }
@@ -437,7 +398,7 @@ fieldset[disabled] .btn-xl.active {
   }
 }
 
-ul.navbar-right {
+.navbar-right {
   font-size: 15px;
   height: 50px;
   line-height: 20px;

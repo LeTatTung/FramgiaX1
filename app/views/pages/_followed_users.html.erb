@@ -1,11 +1,10 @@
-
 <ul>
-  <% if @followings.empty? %>
+  <% if followings.empty? %>
     <p>
       <%= t "news_feed.no_content" %>
     </p>
   <% else %>
-    <% @followings.each do |following| %>
+    <% followings.each do |following| %>
       <%= link_to "#" do %>
         <li title="<%= current_user.name %>" class="followed-users">
           <span>

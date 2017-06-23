@@ -3,7 +3,7 @@
     <h3><%= t "news_feed.followed_users" %></h3>
     <hr>
     <div class="news-feed-left-content">
-      <%= render "followed_users" %>
+      <%= render "followed_users", followings: followings %>
     </div>
   </div>
 
@@ -17,7 +17,7 @@
     <h3><%= t "news_feed.popular_images" %></h3>
     <hr>
     <div class="news-feed-right-content">
-      <%= render "popular_images" %>
+      <%= render "popular_images", popular_images: popular_images %>
     </div>
   </div>
   <a id="to-top" href="#top" class="btn btn-dark btn-lg">
