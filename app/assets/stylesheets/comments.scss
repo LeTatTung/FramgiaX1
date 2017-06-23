@@ -1,0 +1,39 @@
+$blue-dark: #365899;
+$black-color: #000;
+
+.comments {
+  padding-bottom: 10px;
+  padding-top: 10px;
+
+  .comments-header {
+    margin-bottom: 10px;
+
+    .comments-header-content {
+      .comments-header-avatar {
+        border: 1px solid $black-color;
+        display: block;
+        float: left;
+        height: 40px;
+        margin-right: 5px;
+        width: 40px;
+      }
+
+      .comments-header-info {
+        overflow: hidden;
+        position: relative;
+
+        h6 {
+          color: $blue-dark;
+          font-size: 14px;
+          font-weight: bold;
+          margin-bottom: 0 !important;
+          margin-top: 5px !important;
+        }
+
+        .comments-header-user {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

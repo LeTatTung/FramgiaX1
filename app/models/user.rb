@@ -25,4 +25,8 @@ class User < ApplicationRecord
   enum sex: [:male, :female]
 
   mount_uploader :avatar, AvatarUploader
+
+  def just_followed
+    following.order(created_at: :desc).limit 10
+  end
 end

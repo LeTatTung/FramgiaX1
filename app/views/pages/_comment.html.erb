@@ -1,0 +1,32 @@
+<div class="comments">
+  <div class="comments-header">
+    <span class="comments-header-content">
+      <span class="comments-image">
+        <%= link_to "#" do %>
+          <%= image_tag avatar_profile(current_user), class: "img-responsive
+            comments-header-avatar" %>
+        <% end %>
+      </span>
+
+      <div class="comments-header-info">
+        <h6><%= link_to current_user.name, "#" %></h6>
+        <span>
+          <%= t "image_action.test_comment" %>
+        </span>
+        <div>
+          <span>
+            <%= link_to t("image_action.like"), "#" %>
+          </span>
+
+          <span>
+            <%= link_to t("image_action.reply_comment"), "#" %>
+          </span>
+
+          <span>
+            <%= time_ago_in_words Time.now %>
+          </span>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
