@@ -20,3 +20,5 @@ en:
   image_action:
     like: "Like"
     comment: "Comment"
+    reply_comment: "Reply"
+    test_comment: "Day la comment mau"
