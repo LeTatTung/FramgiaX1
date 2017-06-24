@@ -1,3 +1,5 @@
+$blue-light: #428bca;
+
 .flash {
   left: 20px;
   margin-left: 64%;
@@ -45,4 +47,15 @@
 .btn-signup {
   padding-left: 0;
   width: 100%;
+}
+
+.complete {
+  display: none;
+}
+
+.load-more {
+  background: $blue-light;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 3px;
 }

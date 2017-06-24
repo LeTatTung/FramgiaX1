@@ -1,0 +1,11 @@
+<% @comments.each do |comment| %>
+  $('#images-comments-<%= @image.id %>')
+    .append('<%= j render "comment", comment: comment %>');
+<% end %>
+<% if @last %>
+  $('#load-more-image-comments-<%= @image.id %>').hide();
+<% else %>
+  $('#load-more-image-comments-<%= @image.id %>')
+    .html('<%= link_to t("comment.load_more"), image_comments_path(@image,
+    comment_offset: @comments.last.id), remote: true %>');
+<% end %>

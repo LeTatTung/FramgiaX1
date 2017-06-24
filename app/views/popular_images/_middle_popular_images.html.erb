@@ -1,0 +1,28 @@
+<div class="col-md-6 col-sm-6 col-xs-6 news-feed-middle">
+  <div class="news-feed-middle-content with-padding">
+    <div class="news-feed-upload-images">
+      <span class="avatar-upload-images">
+        <%= image_tag avatar_profile(current_user), class: "img-responsive
+          avatar-upload" %>
+      </span>
+      <div class="upload-images-content" data-toggle="modal"
+        data-target="#images-upload-modal">
+        <%= form_tag "#" do %>
+          <%= text_area_tag :search, params[:search],
+            placeholder: t("search_title"), class: "form-control" %>
+        <% end %>
+      </div>
+    </div>
+    <div id="news-feed-images">
+      <% images.each do |image| %>
+        <%= render "images/image", image: image %>
+      <% end %>
+    </div>
+    <div id="load-more-news-feed" class="load-more-news-feed">
+      <% unless images.empty? %>
+        <%= link_to t("image_action.load_more"), popular_images_path(
+          image_offset: images.last.id), remote: true %>
+      <% end %>
+    </div>
+  </div>
+</div>

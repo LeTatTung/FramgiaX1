@@ -12,6 +12,6 @@ class Image < ApplicationRecord
   scope :popular_images, -> {order(like_number: :desc).limit Settings.limit_popular_images}
 
   def main_comments
-  	comments.where parent_id: nil
+  	comments.where(parent_id: nil).order id: :asc
   end
 end

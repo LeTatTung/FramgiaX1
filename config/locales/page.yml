@@ -11,7 +11,8 @@ en:
   welcome: Welcome To SocialPics System !
   nice_to: It's Nice To Meet You
   load_more: "Load more"
-  suggest_status: "What are you thinking ?"
+  suggest_status: "What's on your mind ?"
+  search_title: "Search SocialPics"
   news_feed:
     edit: "Edit"
     delete: "Delete"
@@ -28,6 +29,7 @@ en:
     comment: "Comment"
     reply_comment: "Reply"
     test_comment: "Day la comment mau"
+    load_more: "View more images"
     upload:
       title: "Image upload"
       success: "Image upload success !"
@@ -38,3 +40,14 @@ en:
     address: "Address"
     category: "Category"
     description: "Description"
+  comment:
+    load_more: "View more comments"
+  user:
+    email: "Email: "
+    sex: "Sex: "
+    image_number: "Image number: "
+    following_number: "Following number: "
+    unfollow: "Unfollow"
+  error:
+    image_not_found: "Image not found !"
+    comment_not_found: "Comment not found !"

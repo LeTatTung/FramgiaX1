@@ -98,16 +98,24 @@
       <% end %>
     </span>
 
-    <span class="images-comment">
+    <span class="images-comments">
       <%= image_tag "comment.png", class: "images-comment-icon" %>
       <%= t "image_action.comment" %>
     </span>
     <hr>
   </div>
 
-  <div class="images-comment">
-    <% image.main_comments.each do |comment| %>
-      <%= render "comment", comment: comment %>
+  <div class="images-comments" id="images-comments-<%= image.id %>">
+    <% image_comments = image.main_comments.offset(0)
+      .limit Settings.load_more_comment_size %>
+    <% image_comments.each do |comment| %>
+      <%= render "comments/comment", comment: comment %>
+    <% end %>
+  </div>
+  <div id="load-more-image-comments-<%= image.id %>">
+    <% unless image_comments.empty? %>
+      <%= link_to t("comment.load_more"), image_comments_path(image,
+        comment_offset: image_comments.last.id), remote: true %>
     <% end %>
   </div>
   <%= render "images/image_modal", image: image %>
