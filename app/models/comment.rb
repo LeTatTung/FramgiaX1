@@ -8,7 +8,7 @@ class Comment < ApplicationRecord
 
   def reply_comments
     user_id = self.id
-    Comment.where(parent_id: user_id).where.not id: user_id
+    Comment.where(parent_id: user_id).where.not(id: user_id).order id: :asc
   end
 
   def reply_comment

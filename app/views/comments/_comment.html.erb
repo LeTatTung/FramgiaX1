@@ -31,3 +31,53 @@
     </span>
   </div>
 </div>
+
+<div class="comments">
+  <div class="comments-header">
+    <span class="comments-header-content">
+      <span class="comments-image">
+        <%= link_to "#" do %>
+          <%= image_tag avatar_profile(comment.user), class: "img-responsive
+            comments-header-avatar" %>
+        <% end %>
+      </span>
+
+      <div class="comments-header-info">
+        <h6><%= link_to comment.user.name, "#" %></h6>
+        <% if comment.content.length > Settings.length_comment %>
+          <span><%= comment.content[0...Settings.length_comment] %></span>
+          <span class="complete">
+            <%= comment.content[
+              Settings.length_comment..comment.content.length] %>
+          </span>
+          <span class="load-more"><%= t "load_more" %></span>
+        <% else %>
+          <span><%= comment.content %></span>
+        <% end %>
+
+        <div class="comment-info-action">
+          <span class="like-comments"><%= link_to t("image_action.like"), "#" %></span>
+          <span>-</span>
+          <span class="reply-comments"><%= link_to t("image_action.reply_comment"), "#" %></span>
+          <span>-</span>
+          <span>
+            <%= time_ago_in_words comment.created_at %>
+          </span>
+        </div>
+        <div class="repply-comments" id="reply-comments-<%= comment.id %>">
+          <% reply_comments = comment.reply_comments.offset(0)
+            .limit Settings.load_more_reply_comment_size %>
+          <% reply_comments.each do |reply_comment| %>
+            <%= render "reply_comments/reply_comment", comment: reply_comment %>
+          <% end %>
+        </div>
+        <div id="load-more-reply-comments-<%= comment.id %>">
+          <% unless reply_comments.empty? %>
+            <%= link_to t("comment.load_more"), comment_reply_comments_path(comment,
+              reply_comment_offset: reply_comments.last.id), remote: true %>
+          <% end %>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>

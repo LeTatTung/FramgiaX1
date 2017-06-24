@@ -1,0 +1,24 @@
+<div class="follow-users">
+  <div class="follow-users-header">
+    <span class="follow-users-header-content">
+      <span class="follow-users-image">
+        <%= link_to "#" do %>
+          <%= image_tag avatar_profile(user), class: "img-responsive
+            follow-users-header-avatar" %>
+        <% end %>
+      </span>
+
+      <div class="follow-users-header-info">
+        <h6><%= link_to user.name, "#" %></h6>
+        <div><b><%= t "user.email" %></b><%= user.email %></div>
+        <div><b><%= t "user.sex" %></b><%= user.sex %></div>
+        <div><b><%= t "user.image_number" %></b><%= user.images.size %></div>
+        <div><b><%= t "user.following_number" %></b><%= user.profile.followed_number %></div>
+
+        <div class="follow-users-btn">
+          <%= link_to t("unfollow"), "#", class: "btn btn-primary" %>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
