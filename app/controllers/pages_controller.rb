@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!
-  before_action :load_data
+  before_action :load_data_static, :load_data
 
   def show
   end
@@ -8,9 +8,9 @@ class PagesController < ApplicationController
   private
   def load_data
     if user_signed_in?
-      @followings = current_user.just_followed
-      @popular_images = Image.popular_images
-      @know_users = current_user.know_users.limit Settings.load_more_user_size
+      @categories = Category.all
+      @images = current_user.images_news_feed.offset(0)
+        .limit Settings.load_more_image_size
     end
   end
 end

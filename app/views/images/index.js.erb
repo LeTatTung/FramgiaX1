@@ -1,0 +1,12 @@
+<% @images.each do |image| %>
+  $('#news-feed-images')
+    .append('<%= j render "image", image: image %>');
+<% end %>
+<% if @last %>
+  $('#load-more-news-feed').hide();
+  $('.news-feed-middle-content').removeClass('with-padding');
+<% else %>
+  $('#load-more-news-feed')
+    .html('<%= link_to t "load_more", images_path(
+    image_offset: @images.last.id), remote: true %>');
+<% end %>

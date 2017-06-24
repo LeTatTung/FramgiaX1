@@ -1,0 +1,29 @@
+<div class="col-md-6 col-sm-6 col-xs-6 news-feed-middle">
+  <div class="news-feed-middle-content with-padding">
+    <div class="news-feed-upload-images">
+      <span class="avatar-upload-images">
+        <%= image_tag avatar_profile(current_user), class: "img-responsive
+          avatar-upload" %>
+      </span>
+      <%= link_to new_image_path, remote: true do %>
+        <div class="upload-images-content">
+          <%= text_area_tag :content, params[:content],
+            placeholder: t("suggest_status"), class: "form-control" %>
+        </div>
+      <% end %>
+    </div>
+    <% unless images.empty? %>
+      <div id="news-feed-images">
+        <% images.each do |image| %>
+          <%= render "images/image", image: image %>
+        <% end %>
+      </div>
+      <div id="load-more-news-feed" class="load-more-news-feed">
+        <%= link_to t("load_more"), images_path(image_offset: images.last.id),
+          remote: true %>
+      </div>
+    <% else %>
+      <h3 class="no-content"><%= t :no_content %></h3>
+    <% end %>
+  </div>
+</div>

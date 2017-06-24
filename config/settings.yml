@@ -1,4 +1,11 @@
+limit_popular_images: 10
 length_name: 15
 length_names: 30
 length_address: 20
-limit_popular_images: 4
+load_more_user_size: 4
+load_more_image_size: 4
+load_more_comment_size: 2
+load_more_reply_comment_size: 2
+length_description: 80
+length_comment: 80
+length_more_user: 4

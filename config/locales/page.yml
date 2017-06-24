@@ -11,9 +11,12 @@ en:
   welcome: Welcome To SocialPics System !
   nice_to: It's Nice To Meet You
   load_more: "Load more"
+  suggest_status: "What are you thinking ?"
   news_feed:
     edit: "Edit"
     delete: "Delete"
+    book_mark: "Book mark"
+    report: "Report"
     modal_title: "Vi du description ve dia diem"
     followed_users: "Followed users"
     know_users: "Know users"
@@ -24,3 +27,13 @@ en:
     comment: "Comment"
     reply_comment: "Reply"
     test_comment: "Day la comment mau"
+    upload:
+      title: "Image upload"
+      success: "Image upload success !"
+      fail: "Image upload fail !"
+      submit: "Submit"
+      cancel: "Cancel"
+  image_label:
+    address: "Address"
+    category: "Category"
+    description: "Description"

@@ -10,28 +10,45 @@
 
       <div class="images-header-info">
         <h6><%= link_to current_user.name, "#" %></h6>
-        <small><%= l Time.zone.now.to_datetime, format: :default %></small>
+        <small><%= time_ago_in_words image.created_at %></small>
+
         <span class="dropdown header-item images-header-icon">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <%= image_tag "arrow.png", class: "icon" %>
           </a>
           <ul class="dropdown-menu">
-            <li>
-              <span>
-                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-              </span>
-              <span>
-                <%= link_to t("news_feed.edit"), "#" %>
-              </span>
-            </li>
-            <li>
-              <span>
-                <i class="fa fa-times" aria-hidden="true"></i>
-              </span>
-              <span>
-                <%= link_to t("news_feed.delete"), "#" %>
-              </span>
-            </li>
+            <%= link_to "#" do %>
+              <li>
+                <span>
+                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </span>
+                <span><%= t "news_feed.edit" %></span>
+              </li>
+            <% end %>
+            <%= link_to "#" do %>
+              <li>
+                <span>
+                  <i class="fa fa-times" aria-hidden="true"></i>
+                </span>
+                <span><%= t "news_feed.like" %></span>
+              </li>
+            <% end %>
+            <%= link_to "#" do %>
+              <li>
+                <span>
+                  <i class="fa fa-bookmark-o" aria-hidden="true"></i>
+                </span>
+                <span><%= t "news_feed.book_mark" %></span>
+              </li>
+            <% end %>
+            <%= link_to "#" do %>
+              <li>
+                <span>
+                  <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                </span>
+                <span><%= t "news_feed.report" %></span>
+              </li>
+            <% end %>
           </ul>
         </span>
       </div>
@@ -40,11 +57,32 @@
 
   <div class="images-body">
     <div class="images-body-description">
-      <%= t "news_feed.modal_title" %>
+      <% if !image.description.blank? &&
+        (image.description.length > Settings.length_description) %>
+        <span><%= image.description[0...Settings.length_description] %></span>
+        <span class="complete">
+          <%= image.description[
+            Settings.length_description..image.description.length] %>
+        </span>
+        <span class="load-more"><%= t "load_more" %></span>
+      <% else %>
+        <%= image.description %>
+      <% end %>
+    </div>
+
+    <div class="images-body-address">
+      <span><b><%= t "image_label.address" %></b></span>
+      <%= link_to image.address, images_path(address: image.address) %>
+    </div>
+
+    <div class="images-body-category">
+      <span><b><%= t "image_label.category" %></b></span>
+      <%= link_to image.category.name, images_path(
+        category: image.category.id) %>
     </div>
     <div class="images-body-image" data-toggle="modal"
-      data-target="#images-modal">
-      <%= image_tag "portfolio-1.jpg", class: "img-responsive images-show" %>
+      data-target="#images-modal-<%= image.id %>">
+      <%= image_tag image.image.url, class: "img-responsive images-show" %>
     </div>
     <hr>
   </div>
@@ -62,24 +100,6 @@
     <hr>
   </div>
 
-  <div class="images-comment">
-    <%= render "comment" %>
-  </div>
-
-  <div id="images-modal" class="modal fade" role="dialog">
-    <div class="modal-dialog images-modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">
-            &times;
-          </button>
-          <h4 class="modal-title"><%= t "news_feed.modal_title" %></h4>
-        </div>
-        <div class="modal-body">
-          <%= image_tag "portfolio-1.jpg", class: "img-responsive
-            images-show-detail" %>
-        </div>
-      </div>
-    </div>
-  </div>
+  <%= render "images/image_modal", image: image %>
 </div>
+<div id="edit-image-modal-<%= image.id %>" class="modal fade" role="dialog"></div>

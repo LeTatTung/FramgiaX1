@@ -17,6 +17,10 @@ $black-color: #000;
     }
   }
 
+  .images-upload-modal {
+    margin-top: 50px;
+  }
+
   .ltt-news-feed-left {
     border-right: 1px solid $gray-light;
     float: left;
@@ -141,6 +145,33 @@ $black-color: #000;
 
       p {
         text-align: center;
+      }
+    }
+  }
+
+  .news-feed-upload-images {
+    box-shadow: 1px 2px 4px 1px $black-color !important;
+    margin-bottom: 30px;
+    margin-top: 100px;
+    padding: 10px;
+
+    .avatar-upload-images {
+
+      .avatar-upload {
+        border: 1px solid $black-color;
+        display: block;
+        float: left;
+        height: 50px;
+        margin-right: 10px;
+        width: 50px;
+      }
+    }
+
+    .upload-images-content {
+      overflow: hidden;
+
+      textarea {
+        border: 0;
       }
     }
   }
