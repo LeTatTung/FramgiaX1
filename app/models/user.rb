@@ -22,11 +22,20 @@ class User < ApplicationRecord
   validates_length_of :password, within: Devise.password_length,
     allow_blank: true
 
+  scope :load_know_users, -> (user_ids){where.not(id: user_ids)
+    .order id: :desc}
+
   enum sex: [:male, :female]
 
   mount_uploader :avatar, AvatarUploader
 
   def just_followed
     following.order(created_at: :desc).limit 10
+  end
+
+  def know_users
+    user_ids = following.ids
+    user_ids.push self.id
+    User.load_know_users user_ids
   end
 end
