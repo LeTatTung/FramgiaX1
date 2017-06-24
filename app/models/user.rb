@@ -38,4 +38,11 @@ class User < ApplicationRecord
     user_ids.push self.id
     User.load_know_users user_ids
   end
+
+  def images_news_feed
+    user_ids = following.ids
+    user_ids.push self.id
+    Image.where(user_id: user_ids).or(Image.where(sharer_id: user_ids))
+      .distinct.order id: :desc
+  end
 end

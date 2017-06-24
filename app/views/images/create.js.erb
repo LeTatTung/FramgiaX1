@@ -1,0 +1,4 @@
+<% if @image.errors.any? %>
+  $('.image-form-errors')
+    .html('<%= j render "shared/error_messages", object: @image %>');
+<% end %>

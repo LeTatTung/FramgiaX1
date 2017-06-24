@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :popular_images, only: :index
   resources :follow_users, only: :index
   resources :users, only: [:show, :edit]
+  resources :images
 end

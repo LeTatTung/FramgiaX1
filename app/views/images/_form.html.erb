@@ -1,0 +1,54 @@
+<div class="modal-dialog images-upload-modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">
+        &times;
+      </button>
+      <h4 class="modal-title"><%= t "image_action.upload.title" %></h4>
+    </div>
+    <div class="modal-body">
+      <div class="image-form">
+        <%= form_for image, multipart: true, authenticity_token: true,
+          remote: true do |f| %>
+          <div class="image-form-errors">
+            <% if image.errors.any? %>
+              <%= render "shared/error_messages", object: image %>
+            <% end %>
+          </div>
+
+          <div class="image-image">
+            <span>
+              <%= image_tag "", class: "img-responsive image-panel" %>
+            </span>
+            <span><%= f.file_field :image, class: "image-file-field" %></span>
+          </div>
+
+          <div class="field">
+            <%= f.label t "image_label.category" %>
+            <%= f.select :category_id, categories.collect {|category|
+              [category.name, category.id]}, {}, class: "form-control" %>
+          </div>
+
+          <div class="field">
+            <%= f.label t "image_label.address" %>
+            <%= f.text_field :address, class: "form-control" %>
+          </div>
+
+          <div class="field">
+            <%= f.label t "image_label.description" %>
+            <%= f.text_area :description, class: "form-control image-description" %>
+          </div>
+
+          <div class="actions">
+            <button type="button" class="btn btn-danger image-btn-cancel"
+              data-dismiss="modal">
+              <%= t "image_action.upload.cancel" %>
+            </button>
+            <%= f.submit t("image_action.upload.submit"), class: "btn btn-primary" %>
+          </div>
+          <div class="clearfix"></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

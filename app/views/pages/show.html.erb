@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <%= render "news_feed", followings: @followings, popular_images: @popular_images,
-    know_users: @know_users %>
+    know_users: @know_users, images: @images %>
 <% else %>
   <%= render "home_page" %>
 <% end %>
