@@ -24,6 +24,7 @@ en:
     no_content: "No content"
   image_action:
     like: "Like"
+    unlike: "Unlike"
     comment: "Comment"
     reply_comment: "Reply"
     test_comment: "Day la comment mau"
