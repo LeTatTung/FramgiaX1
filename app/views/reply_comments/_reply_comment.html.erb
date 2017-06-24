@@ -1,0 +1,37 @@
+<div class="comments">
+  <div class="comments-header">
+    <span class="comments-header-content">
+      <span class="comments-image">
+        <%= link_to "#" do %>
+          <%= image_tag avatar_profile(comment.user), class: "img-responsive
+            comments-header-avatar avatar-reply-comment" %>
+        <% end %>
+      </span>
+
+      <div class="comments-header-info">
+        <h6><%= link_to comment.user.name, "#" %></h6>
+        <span><%= user_reply_comment comment %>
+          <% if comment.content.length > Settings.length_comment %>
+            <span><%= comment.content[0...Settings.length_comment] %></span>
+            <span class="complete">
+              <%= comment.content[
+                Settings.length_comment..comment.content.length] %>
+            </span>
+            <span class="load-more"><%= t "load_more" %></span>
+          <% else %>
+            <span><%= comment.content %></span>
+          <% end %>
+        </span>
+        <div>
+          <span class="like-comments"><%= link_to t("image_action.like"), "#" %></span>
+          <span>-</span>
+          <span class="reply-comments"><%= link_to t("image_action.reply_comment"), "#" %></span>
+          <span>-</span>
+          <span>
+            <%= time_ago_in_words comment.created_at %>
+          </span>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
