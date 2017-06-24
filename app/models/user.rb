@@ -45,4 +45,8 @@ class User < ApplicationRecord
     Image.where(user_id: user_ids).or(Image.where(sharer_id: user_ids))
       .distinct.order id: :desc
   end
+
+  def liked image
+    FeedBack.find_by image_id: image.id, user_id: self.id,feed_back_type: "like"
+  end
 end

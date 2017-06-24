@@ -1,12 +1,17 @@
 $blue-dark: #365899;
 $black-color: #000;
+$black-light: #dddfe2;
 
 .comments {
-  padding-bottom: 10px;
-  padding-top: 10px;
+  margin-bottom: 10px;
 
   .comments-header {
     margin-bottom: 10px;
+
+    .avatar-reply-comment {
+      height: 30px;
+      width: 30px;
+    }
 
     .comments-header-content {
       .comments-header-avatar {
@@ -27,13 +32,22 @@ $black-color: #000;
           font-size: 14px;
           font-weight: bold;
           margin-bottom: 0 !important;
-          margin-top: 5px !important;
+          margin-top: 0 !important;
         }
 
         .comments-header-user {
           width: 100%;
         }
+
+        .comment-info-action {
+          margin-bottom: 10px;
+        }
       }
     }
   }
+}
+
+.repply-comments {
+  border-left: 2px solid $black-light;
+  padding-left: 10px;
 }
