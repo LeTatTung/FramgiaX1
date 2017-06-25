@@ -28,6 +28,8 @@ en:
     unlike: "Unlike"
     comment: "Comment"
     reply_comment: "Reply"
+    bookmark: "Bookmark"
+    unbookmark: "Unbookmark"
     test_comment: "Day la comment mau"
     load_more: "View more images"
     upload:
