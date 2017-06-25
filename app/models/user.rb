@@ -67,6 +67,14 @@ class User < ApplicationRecord
     book_marks.find_by image_id: image.id
   end
 
+  def reports
+    feed_backs.report
+  end
+
+  def reported image
+    reports.find_by image_id: image.id
+  end
+
   def current_user? user
     self == user
   end

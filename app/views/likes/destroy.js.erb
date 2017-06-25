@@ -1,2 +1,4 @@
-$('#image-like-<%= @image.id %>')
-  .html('<%= j render "unlike", image: @image %>');
+<% unless @like.errors.any? %>
+  $('#image-like-<%= @image.id %>')
+    .html('<%= j render "unlike", image: @image %>');
+<% end %>

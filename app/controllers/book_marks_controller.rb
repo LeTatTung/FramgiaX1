@@ -16,10 +16,12 @@ class BookMarksController < ApplicationController
   end
 
   def create
-    @book_mark = @image.feed_backs.new
-    @book_mark.user = current_user
-    @book_mark.feed_back_type = "book_mark"
-    @book_mark.save
+    unless current_user.book_marked @image
+      @book_mark = @image.feed_backs.new
+      @book_mark.user = current_user
+      @book_mark.feed_back_type = "book_mark"
+      @book_mark.save
+    end
   end
 
   def destroy
