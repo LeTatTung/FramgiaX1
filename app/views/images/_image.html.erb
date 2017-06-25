@@ -89,17 +89,11 @@
   </div>
 
   <div class="images-footer">
-    <span class="images-like">
-      <% if current_user.liked image %>
-        <%= image_tag "unlike.png", class: "images-like-icon" %>
-        <span class="unlike"><%= image.likes.size %>
-          <%= t "image_action.unlike" %>
-        </span>
+    <span class="images-like" id="image-like-<%= image.id %>">
+      <% if (like = current_user.liked(image)) %>
+        <%=  render "likes/like", image: image, like: like %>
       <% else %>
-        <%= image_tag "like.png", class: "images-like-icon" %>
-        <span class="like"><%= image.likes.size %>
-          <%= t "image_action.like" %>
-        </span>
+        <%= render "likes/unlike", image: image %>
       <% end %>
     </span>
 

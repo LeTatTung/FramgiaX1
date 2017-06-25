@@ -74,6 +74,7 @@ en:
       place_birth: "Place birth: "
       birthday: "Birthday: "
   error:
+    not_found: "Not found !"
     image_not_found: "Image not found !"
     comment_not_found: "Comment not found !"
     user_not_found: "User not found !"
