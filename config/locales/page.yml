@@ -52,6 +52,7 @@ en:
     image_number: "Image number: "
     following_number: "Following number: "
     unfollow: "Unfollow"
+    follow: "Follow"
     update:
       title: "Edit profile"
       success: "Update success !"

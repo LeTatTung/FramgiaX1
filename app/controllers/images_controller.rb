@@ -13,6 +13,9 @@ class ImagesController < ApplicationController
     end
   end
 
+  def show
+  end
+
   def new
     @image = Image.new
     @categories = Category.all
@@ -38,5 +41,13 @@ class ImagesController < ApplicationController
   private
   def image_params
     params.require(:image).permit :description, :image, :address, :category_id
+  end
+
+  def load_image
+    @image = Image.find_by id: params[:id]
+    unless @image
+      flash[:danger] = t "error.image_not_found"
+      redirect_to root_path
+    end
   end
 end

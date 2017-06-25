@@ -74,4 +74,8 @@ class User < ApplicationRecord
     rescue => e
     return nil
   end
+
+  def followed? user
+    active_relationships.find_by followed_id: user.id
+  end
 end

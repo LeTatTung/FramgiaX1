@@ -13,6 +13,11 @@
         <div class="user-name">
           <%= @user.name %>
         </div>
+        <% unless current_user.current_user? @user %>
+          <div class="follow-users-btn">
+            <%= link_to t("unfollow"), "#", class: "btn btn-primary" %>
+          </div>
+        <% end %>
       </div>
 
       <div class="user-info">

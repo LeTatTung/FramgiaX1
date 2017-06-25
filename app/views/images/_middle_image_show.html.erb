@@ -1,0 +1,19 @@
+<div class="col-md-6 col-sm-6 col-xs-6 news-feed-middle">
+  <div class="news-feed-middle-content">
+    <div class="news-feed-upload-images">
+      <span class="avatar-upload-images">
+        <%= image_tag avatar_profile(current_user), class: "img-responsive
+          avatar-upload" %>
+      </span>
+      <%= link_to new_image_path, remote: true do %>
+        <div class="upload-images-content">
+          <%= text_area_tag :search, params[:search], placeholder: t("search_title"),
+            class: "form-control" %>
+        </div>
+      <% end %>
+    </div>
+    <div id="news-feed-images">
+        <%= render "images/image", image: image %>
+    </div>
+  </div>
+</div>
