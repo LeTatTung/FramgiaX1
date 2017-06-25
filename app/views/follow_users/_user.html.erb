@@ -16,7 +16,11 @@
         <div><b><%= t "user.following_number" %></b><%= user.profile.followed_number %></div>
 
         <div class="follow-users-btn">
-          <%= link_to t("unfollow"), "#", class: "btn btn-primary" %>
+          <% if current_user.followed? user %>
+            <%= link_to t("unfollow"), "#", class: "btn btn-primary" %>
+          <% else %>
+            <%= link_to t("follow"), "#", class: "btn btn-primary" %>
+          <% end %>
         </div>
       </div>
     </span>
