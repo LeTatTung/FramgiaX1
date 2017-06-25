@@ -1,0 +1,5 @@
+<% if (book_mark = current_user.book_marked(image)) %>
+  <%= render "book_marks/book_mark", image: image, book_mark: book_mark %>
+<% else %>
+  <%= render "book_marks/unbook_mark", image: image %>
+<% end %>

@@ -23,7 +23,7 @@ class LikesController < ApplicationController
   end
 
   def load_like
-    @like = FeedBack.like.find_by id: params[:id]
+    @like = current_user.likes.find_by id: params[:id]
     unless @like
       flash[:danger] = t "error.not_found"
       redirect_to root_path

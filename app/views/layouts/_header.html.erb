@@ -24,6 +24,9 @@
             <%= link_to t("sessions.profile"), current_user %>
           </li>
           <li>
+            <%= link_to t("sessions.image_bookmark"), user_book_marks_path(current_user) %>
+          </li>
+          <li>
             <%= link_to t("sessions.sign_out"), destroy_user_session_path, method: :delete %>
           </li>
         </ul>

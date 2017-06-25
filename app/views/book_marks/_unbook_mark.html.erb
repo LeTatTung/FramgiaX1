@@ -1,0 +1,8 @@
+<%= link_to image_book_marks_path(image), remote: true, method: :post do %>
+  <li>
+    <span>
+      <i class="fa fa-bookmark-o" aria-hidden="true"></i>
+    </span>
+    <span><%= t "image_action.bookmark" %></span>
+  </li>
+<% end %>

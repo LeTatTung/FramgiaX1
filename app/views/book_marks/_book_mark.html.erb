@@ -1,0 +1,9 @@
+<%= link_to image_book_mark_path(image, book_mark), remote: true,
+  method: :delete do %>
+  <li>
+    <span>
+      <i class="fa fa-bookmark" aria-hidden="true"></i>
+    </span>
+    <span><%= t "image_action.unbookmark" %></span>
+  </li>
+<% end %>
