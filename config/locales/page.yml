@@ -48,6 +48,27 @@ en:
     image_number: "Image number: "
     following_number: "Following number: "
     unfollow: "Unfollow"
+    update:
+      title: "Edit profile"
+      success: "Update success !"
+      fail: "Update fail !"
+    form: 
+      email: "Email"
+      name: "Name"
+      phone_number: "Phone number"
+      place_birth: "Place birth"
+      birthday: "Birthday"
+      sex:
+        male: "Male"
+        female: "Female"
+      submit: "Submit"
+      cancel: "Cancel"
+    info: 
+      email: "Email: "
+      phone_number: "Phone number: "
+      place_birth: "Place birth: "
+      birthday: "Birthday: "
   error:
     image_not_found: "Image not found !"
     comment_not_found: "Comment not found !"
+    user_not_found: "User not found !"

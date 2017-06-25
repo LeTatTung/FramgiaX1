@@ -1,0 +1,11 @@
+<% @images.each do |image| %>
+  $('#user-show-images')
+    .append('<%= j render "images/image", image: image %>');
+<% end %>
+<% if @last %>
+  $('#load-more-user-show-mages').hide();
+<% else %>
+  $('#load-more-user-show-mages')
+    .html('<%= link_to t("image_action.load_more"), user_path(@user,
+    image_offset: @images.last.id), remote: true %>');
+<% end %>

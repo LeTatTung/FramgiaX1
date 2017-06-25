@@ -10,6 +10,7 @@ $white-color: #fff;
 $yellow-color: #fed136;
 $yellow-dark: #fec503;
 $gray-light: #eee;
+$white-dark: #e9ebee;
 
 .ltt-header {
   background-color: transparent;
@@ -403,4 +404,19 @@ img::selection {
   height: 50px;
   line-height: 20px;
   padding: 25px 15px;
+}
+
+.ltt-body-content {
+  background-color: $white-dark;
+  min-height: 100vh;
+  min-width: 1000px;
+  padding: 20px !important;
+  padding-top: 50px !important;
+}
+
+.ltt-body-content::before,
+.ltt-body-content::after {
+  clear: both;
+  content: " ";
+  display: table;
 }

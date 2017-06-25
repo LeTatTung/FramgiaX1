@@ -1,0 +1,59 @@
+<div class="user-form">
+  <%= form_for user, method: :patch, remote: true do |f| %>
+    <div class="user-form-errors">
+      <%= render "shared/error_messages", object: user %>
+    </div>
+
+    <div class="user-avatar">
+      <span><%= image_tag avatar_profile(user), class: "img-responsive
+        img-user-avatar-file-field" %></span>
+      <span><%= f.file_field :avatar, class: "avatar-file-field" %></span>
+    </div>
+
+    <%= f.label t("user.form.email") %>
+    <label class="field form-control" readonly>
+      <%= user.email %>
+    </label>
+
+    <div class="field">
+      <%= f.label t("user.form.name") %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= label_tag t("user.form.phone_number") %>
+      <%= text_field_tag "profile[phone_number]",
+        user.profile.phone_number, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= label_tag t("user.form.place_birth") %>
+      <%= text_field_tag "profile[place_birth]",
+        user.profile.place_birth, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= label_tag t("user.form.birthday") %>
+      <%= text_field_tag "profile[birthday]",
+        user.profile.birthday, {data: {provide: "datepicker"},
+        "data-date-format" => "yyyy-mm-dd", class: "form-control"} %>
+    </div>
+
+    <div class="field">
+      <label><%= f.radio_button :sex, "male", checked: true %>
+        <%= t "user.form.sex.male" %>
+      </label>
+      <label><%= f.radio_button :sex, "female" %>
+        <%= t "user.form.sex.female" %>
+      </label>
+    </div>
+
+    <div class="user-form-submit">
+      <%= f.submit t("user.form.submit"), class: "btn btn-primary user-form-btn-save" %>
+      <button class="btn btn-danger user-form-btn-cancel">
+        <%= t "user.form.cancel" %>
+      </button>
+    </div>
+    <div class="clearfix"></div>
+  <% end %>
+</div>

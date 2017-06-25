@@ -9,5 +9,6 @@ en:
       password_field: "Password"
       social: "Or Login via"
       new_here: "New here? "
-    sign_out: Log out
-    sign_in: Log in/ Sign up
+    sign_out: "Log out"
+    sign_in: "Log in/ Sign up"
+    profile: "My profile"

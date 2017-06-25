@@ -13,16 +13,18 @@
         <% end %>
       </div>
     </div>
-    <div id="news-feed-images">
-      <% images.each do |image| %>
-        <%= render "images/image", image: image %>
-      <% end %>
-    </div>
-    <div id="load-more-news-feed" class="load-more-news-feed">
-      <% unless images.empty? %>
-        <%= link_to t("image_action.load_more"), popular_images_path(
-          image_offset: images.last.id), remote: true %>
-      <% end %>
-    </div>
+    <% unless images.empty? %>
+      <div id="news-feed-images">
+        <% images.each do |image| %>
+          <%= render "images/image", image: image %>
+        <% end %>
+      </div>
+      <div id="load-more-news-feed" class="load-more-news-feed">
+          <%= link_to t("image_action.load_more"), popular_images_path(
+            image_offset: images.last.id), remote: true %>
+      </div>
+    <% else %>
+      <h3 class="no-content"><%= t "news_feed.no_content" %></h3>
+    <% end %>
   </div>
 </div>

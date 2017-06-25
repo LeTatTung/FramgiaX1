@@ -11,6 +11,6 @@ Rails.application.routes.draw do
     resources :reply_comments
   end
   resources :popular_images
-  resources :follow_users
-  resources :users
+  resources :follow_users, only: :index
+  resources :users, only: [:show, :update]
 end
