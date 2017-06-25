@@ -45,6 +45,12 @@ en:
       success: "Image delete success !"
       fail: "Image delete fail !"
     report_sure: "You are sure ?"
+    share:
+      title: "Share"
+      post_title: "Image shared !"
+      success: "Image share success !"
+      submit: "Submit"
+      cancel: "Cancel"
   image_label:
     address: "Address"
     category: "Category"

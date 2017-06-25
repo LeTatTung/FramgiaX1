@@ -50,7 +50,7 @@ class ImagesController < ApplicationController
   end
 
   def destroy
-    if current_user == @image.user && @image.destroy
+    if current_user == @image.user && @image.destroy_images
       flash[:success] = t "image_action.delete.success"
     else
       flash[:danger] = t "image_action.delete.fail"

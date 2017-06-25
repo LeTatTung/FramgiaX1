@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
     resources :book_marks, only: [:create, :destroy]
     resources :reports, only: :create
+    resources :shares, except: [:index, :show, :destroy]
   end
   resources :comments, only: :index do
     resources :reply_comments, except: :show

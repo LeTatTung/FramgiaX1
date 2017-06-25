@@ -1,0 +1,9 @@
+<%= link_to new_image_share_path(image), remote: true do %>
+  <%= image_tag "share.png", class: "images-share-icon" %>
+  <span id="share-size-<%= image.id %>">
+    <%= image.main_shares.size %>
+  </span>
+  <%= t "image_action.share.title" %>
+<% end %>
+<div id="share-image-modal-<%= image.id %>" class="modal fade" role="dialog">
+</div>
