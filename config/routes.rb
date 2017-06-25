@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   resources :follow_users, only: :index
   resources :users, only: [:show, :update] do
     resources :book_marks, only: :index
+    resources :relationships, only: [:create, :destroy]
   end
 end
