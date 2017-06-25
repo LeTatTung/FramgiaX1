@@ -83,6 +83,23 @@ class User < ApplicationRecord
     self == user
   end
 
+  def followed? user
+    following.include? user
+  end
+
+  def follow other_user
+    following << other_user
+    active_relationships.last
+  end
+
+  def unfollow other_user
+    following.delete other_user
+  end
+
+  def user_relationship user
+    active_relationships.find_by followed_id: user.id
+  end
+
   def update_profile params
     user_params = params[:user_params]
     profile_params = params[:profile_params]
@@ -101,9 +118,5 @@ class User < ApplicationRecord
     nil
     rescue => e
     return nil
-  end
-
-  def followed? user
-    active_relationships.find_by followed_id: user.id
   end
 end

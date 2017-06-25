@@ -15,7 +15,7 @@
         </div>
         <% unless current_user.current_user? @user %>
           <div class="follow-users-btn">
-            <%= link_to t("unfollow"), "#", class: "btn btn-primary" %>
+            <%= render "relationships/follow_form", user: @user %>
           </div>
         <% end %>
       </div>
