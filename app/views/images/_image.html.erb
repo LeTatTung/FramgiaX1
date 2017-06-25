@@ -20,21 +20,25 @@
             <%= image_tag "arrow.png", class: "icon" %>
           </a>
           <ul class="dropdown-menu">
-            <%= link_to "#" do %>
-              <li>
-                <span>
-                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                </span>
-                <span><%= t "news_feed.edit" %></span>
-              </li>
-            <% end %>
-            <%= link_to "#" do %>
-              <li>
-                <span>
-                  <i class="fa fa-times" aria-hidden="true"></i>
-                </span>
-                <span><%= t "news_feed.delete" %></span>
-              </li>
+            <% if current_user == image.user %>
+              <%= link_to edit_image_path(image), remote: true do %>
+                <li>
+                  <span>
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                  </span>
+                  <span><%= t "news_feed.edit" %></span>
+                </li>
+              <% end %>
+
+              <%= link_to image_path(image), method: :delete,
+                data: {confirm: t("image_action.delete.sure")} do %>
+                <li>
+                  <span>
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                  </span>
+                  <span><%= t "news_feed.delete" %></span>
+                </li>
+              <% end %>
             <% end %>
             <%= link_to "#" do %>
               <li>
@@ -134,3 +138,4 @@
   </div>
   <%= render "images/image_modal", image: image %>
 </div>
+<div id="edit-image-modal-<%= image.id %>" class="modal fade" role="dialog"></div>

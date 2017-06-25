@@ -1,0 +1,2 @@
+$('#edit-image-modal-<%= @image.id %>').html('<%= j render "form", image: @image, categories: @categories %>');
+$('#edit-image-modal-<%= @image.id %>').modal('show');

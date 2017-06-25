@@ -38,6 +38,26 @@ class ImagesController < ApplicationController
     redirect_to root_path
   end
 
+  def edit
+    @categories = Category.all
+  end
+
+  def update
+    if @image.update_attributes image_params
+      flash[:success] = t "image_action.update.success"
+      redirect_to @image
+    end
+  end
+
+  def destroy
+    if current_user == @image.user && @image.destroy
+      flash[:success] = t "image_action.delete.success"
+    else
+      flash[:danger] = t "image_action.delete.fail"
+    end
+    redirect_to root_path
+  end
+
   private
   def image_params
     params.require(:image).permit :description, :image, :address, :category_id

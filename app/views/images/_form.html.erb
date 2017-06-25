@@ -18,7 +18,13 @@
 
           <div class="image-image">
             <span>
-              <%= image_tag "", class: "img-responsive image-panel" %>
+              <% if image.id.nil? %>
+                <%= image_tag "",
+                  class: "img-responsive image-panel" %>
+              <% else %>
+                <%= image_tag image.image_url,
+                  class: "img-responsive image-panel" %>
+              <% end %>
             </span>
             <span><%= f.file_field :image, class: "image-file-field" %></span>
           </div>
