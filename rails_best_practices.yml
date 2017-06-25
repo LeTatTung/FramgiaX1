@@ -36,7 +36,7 @@ RemoveUnusedMethodsInHelpersCheck: {
 }
 RemoveUnusedMethodsInModelsCheck: {
   except_methods: [],
-  ignored_files: ['app/models/user.rb']
+  ignored_files: ['app/models/user.rb', 'app/models/image.rb']
 }
 ReplaceComplexCreationWithFactoryMethodCheck: { attribute_assignment_count: 2 }
 ReplaceInstanceVariableWithLocalVariableCheck: { }

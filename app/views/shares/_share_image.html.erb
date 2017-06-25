@@ -1,17 +1,17 @@
-<div class="images">
+<div class="images share-images">
   <div class="images-header">
     <span class="images-header-content">
       <span class="images-image">
-        <%= link_to image.user do %>
-          <%= image_tag avatar_profile(image.user), class: "img-responsive
+        <%= link_to image.sharer do %>
+          <%= image_tag avatar_profile(image.sharer), class: "img-responsive
             images-header-avatar" %>
         <% end %>
       </span>
 
       <div class="images-header-info">
-        <h6><%= link_to image.user.name, image.user %>
+        <h6><%= link_to image.sharer.name, image.sharer %>
           <span class="image-post-title">
-            <%= t "image_action.upload.title" %>
+            <%= t "image_action.share.post_title" %>
           </span>
         </h6>
         <small><%= time_ago_in_words image.created_at %></small>
@@ -20,8 +20,9 @@
             <%= image_tag "arrow.png", class: "icon" %>
           </a>
           <ul class="dropdown-menu">
-            <% if current_user == image.user %>
-              <%= link_to edit_image_path(image), remote: true do %>
+            <% if current_user == image.sharer %>
+              <%= link_to edit_image_share_path(image.shared_image, image),
+                remote: true do %>
                 <li>
                   <span>
                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
@@ -40,6 +41,7 @@
                 </li>
               <% end %>
             <% end %>
+
             <span id="image-book-mark-<%= image.id %>">
               <%= render "book_marks/book_mark_form", image: image %>
             </span>
@@ -64,32 +66,22 @@
 
   <div class="images-body">
     <div class="images-body-description">
-      <% if !image.description.blank? &&
-        (image.description.length > Settings.length_description) %>
-        <span><%= image.description[0...Settings.length_description] %></span>
+      <% if !image.share_description.blank? &&
+        (image.share_description.length > Settings.length_description) %>
+        <span>
+          <%= image.share_description[0...Settings.length_description] %>
+        </span>
         <span class="complete">
-          <%= image.description[
-            Settings.length_description..image.description.length] %>
+          <%= image.share_description[
+            Settings.length_description..image.share_description.length] %>
         </span>
         <span class="load-more"><%= t "load_more" %></span>
       <% else %>
-        <%= image.description %>
+        <%= image.share_description %>
       <% end %>
     </div>
 
-    <div class="images-body-address">
-      <span><b><%= t "image_label.address" %></b></span>
-      <%= link_to image.address, "#" %>
-    </div>
-
-    <div class="images-body-category">
-      <span><b><%= t "image_label.category" %></b></span>
-      <%= link_to image.category.name, "#" %>
-    </div>
-    <div class="images-body-image" data-toggle="modal"
-      data-target="#images-modal-<%= image.id %>">
-      <%= image_tag image.image.url, class: "img-responsive images-show" %>
-    </div>
+    <%= render "shares/image", image: image  %>
     <hr>
   </div>
 
@@ -103,8 +95,9 @@
       <span id="comment-size-<%= image.id %>">
         <%= image.main_comments.size %>
       </span>
-      <%= t "image_action.comment" %>
+      コメント
     </span>
+
     <span class="images-share" id="image-share-<%= image.id %>">
       <%= render "shares/share_form", image: image %>
     </span>
@@ -138,4 +131,5 @@
   </div>
   <%= render "images/image_modal", image: image %>
 </div>
-<div id="edit-image-modal-<%= image.id %>" class="modal fade" role="dialog"></div>
+<div id="edit-image-modal-<%= image.id %>" class="modal fade" role="dialog">
+</div>

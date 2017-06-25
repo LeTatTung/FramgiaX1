@@ -1,0 +1,3 @@
+$('#share-image-modal-<%= @image.id %>')
+  .html('<%= j render "shares/form", image: @image, share_image: @share_image %>');
+$('#share-image-modal-<%= @image.id %>').modal('show');

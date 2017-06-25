@@ -1,0 +1,49 @@
+<div class="images">
+  <div class="images-header">
+    <span class="images-header-content">
+      <span class="images-image">
+        <%= link_to image.user do %>
+          <%= image_tag avatar_profile(image.user), class: "img-responsive
+            images-header-avatar" %>
+        <% end %>
+      </span>
+
+      <div class="images-header-info">
+        <h6><%= link_to image.user.name, image.user %>
+        </h6>
+        <small><%= time_ago_in_words image.created_at %></small>
+      </div>
+    </span>
+  </div>
+
+  <div class="images-body">
+    <div class="images-body-description">
+      <% if !image.description.blank? &&
+        (image.description.length > Settings.length_description) %>
+        <span><%= image.description[0...Settings.length_description] %></span>
+        <span class="complete">
+          <%= image.description[
+            Settings.length_description..image.description.length] %>
+        </span>
+        <span class="load-more"><%= t "load_more" %></span>
+      <% else %>
+        <%= image.description %>
+      <% end %>
+    </div>
+
+    <div class="images-body-address">
+      <span><b><%= t "image_label.address" %></b></span>
+      <%= link_to image.address, "#" %>
+    </div>
+
+    <div class="images-body-category">
+      <span><b><%= t "image_label.category" %></b></span>
+      <%= link_to image.category.name, "#" %>
+    </div>
+    <div class="images-body-image">
+      <%= link_to image.shared_image do %>
+        <%= image_tag image.image.url, class: "img-responsive images-show" %>
+      <% end %>
+    </div>
+  </div>
+</div>

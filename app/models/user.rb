@@ -75,6 +75,10 @@ class User < ApplicationRecord
     reports.find_by image_id: image.id
   end
 
+  def shared_images
+    Image.where sharer_id: self.id
+  end
+
   def current_user? user
     self == user
   end
