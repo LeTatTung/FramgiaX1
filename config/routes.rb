@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :comments, except: :show
     resources :likes, only: [:create, :destroy]
     resources :book_marks, only: [:create, :destroy]
+    resources :reports, only: :create
   end
   resources :comments, only: :index do
     resources :reply_comments, except: :show

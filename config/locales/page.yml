@@ -44,6 +44,7 @@ en:
       sure: "You are sure ?"
       success: "Image delete success !"
       fail: "Image delete fail !"
+    report_sure: "You are sure ?"
   image_label:
     address: "Address"
     category: "Category"

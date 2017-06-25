@@ -43,13 +43,18 @@
             <span id="image-book-mark-<%= image.id %>">
               <%= render "book_marks/book_mark_form", image: image %>
             </span>
-            <%= link_to "#" do %>
-              <li>
-                <span>
-                  <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-                </span>
-                <span><%= t "news_feed.report" %></span>
-              </li>
+            <% unless current_user.reported image %>
+              <span id="image-report-<%= image.id %>">
+                <%= link_to image_reports_path(image), remote: true,
+                  method: :post, data: {confirm: t("image_action.report_sure")} do %>
+                  <li>
+                    <span>
+                      <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                    </span>
+                    <span><%= t "news_feed.report" %></span>
+                  </li>
+                <% end %>
+              </span>
             <% end %>
           </ul>
         </span>
