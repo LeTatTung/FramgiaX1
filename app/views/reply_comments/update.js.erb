@@ -1,0 +1,5 @@
+$('#image-comment-<%= @reply_comment.id %>').show();
+$('#image-comment-edit-form-<%= @reply_comment.id %>').hide();
+$('#image-comment-<%= @reply_comment.id %>')
+  .html('<%= j render "reply_comments/reply_comment_detail",
+  comment: @reply_comment %>');

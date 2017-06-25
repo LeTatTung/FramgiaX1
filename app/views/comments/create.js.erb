@@ -1,0 +1,9 @@
+<% if @success %>
+  $('#images-comments-<%= @image.id %>')
+    .prepend('<%= j render "comments/edit_form", comment: @comment %>');
+  $('#images-comments-<%= @image.id %>')
+    .prepend('<%= j render "comment", comment: @comment %>');
+  $('#image-comment-form-content-<%= @image.id %>').val('');
+  var size = <%= @image.main_comments.size.to_s %>
+  $('#comment-size-<%= @image.id %>').text(size);
+<% end %>

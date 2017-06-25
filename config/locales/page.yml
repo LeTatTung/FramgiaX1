@@ -42,6 +42,10 @@ en:
     description: "Description"
   comment:
     load_more: "View more comments"
+    delete: "Delete"
+    sure: "You are sure ?"
+    write: "Write a comment..."
+    cancel: "Cancel"
   user:
     email: "Email: "
     sex: "Sex: "

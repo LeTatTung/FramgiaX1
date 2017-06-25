@@ -21,7 +21,8 @@
       </div>
       <div id="load-more-news-feed" class="load-more-news-feed">
           <%= link_to t("image_action.load_more"), popular_images_path(
-            image_offset: images.last.id), remote: true %>
+            image_offset: images.last.id,
+            image_like_offset: images.last.like_number), remote: true %>
       </div>
     <% else %>
       <h3 class="no-content"><%= t "news_feed.no_content" %></h3>
