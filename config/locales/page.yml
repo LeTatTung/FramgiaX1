@@ -36,6 +36,12 @@ en:
       fail: "Image upload fail !"
       submit: "Submit"
       cancel: "Cancel"
+    update:
+      success: "Image update success !"
+    delete:
+      sure: "You are sure ?"
+      success: "Image delete success !"
+      fail: "Image delete fail !"
   image_label:
     address: "Address"
     category: "Category"
