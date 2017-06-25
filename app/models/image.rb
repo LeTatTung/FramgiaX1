@@ -3,7 +3,8 @@ class Image < ApplicationRecord
   belongs_to :category
 
   has_many :comments, dependent: :destroy
-  has_many :feed_backs, dependent: :destroy
+  has_many :feed_backs, class_name: FeedBack.name, foreign_key: :image_id,
+    dependent: :destroy
 
   validates :user, presence: true
   validates :category, presence: true

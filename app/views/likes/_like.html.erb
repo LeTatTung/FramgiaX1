@@ -1,0 +1,5 @@
+<%= link_to image_like_path(image, like), method: :delete,
+  remote: true do %>
+  <%= image_tag "unlike.png", class: "images-like-icon" %>
+  <span class="unlike"><%= image.likes.size %><%= t "image_action.like" %></span>
+<% end %>

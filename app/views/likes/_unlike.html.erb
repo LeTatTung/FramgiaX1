@@ -1,0 +1,5 @@
+<%= link_to image_likes_path(image, FeedBack.new), method: :post,
+  remote: true do %>
+  <%= image_tag "like.png", class: "images-like-icon" %>
+  <span class="like"><%= image.likes.size %><%= t "image_action.like" %></span>
+<% end %>

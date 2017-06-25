@@ -3,13 +3,14 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :trackable, :validatable
 
   has_many :comments, dependent: :destroy
-  has_many :feed_backs, dependent: :destroy
+  has_many :feed_backs, class_name: FeedBack.name, foreign_key: :user_id,
+    dependent: :destroy
   has_many :images, dependent: :destroy
   has_one :profile, dependent: :destroy
   has_many :active_relationships, class_name: Relationship.name,
-    foreign_key: "follower_id", dependent: :destroy
+    foreign_key: :follower_id, dependent: :destroy
   has_many :passive_relationships, class_name: Relationship.name,
-    foreign_key: "followed_id", dependent: :destroy
+    foreign_key: :followed_id, dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
@@ -47,8 +48,11 @@ class User < ApplicationRecord
       .distinct.order id: :desc
   end
 
+  def likes
+    feed_backs.like
+  end
   def liked image
-    FeedBack.find_by image_id: image.id, user_id: self.id,feed_back_type: "like"
+    likes.find_by image_id: image.id
   end
 
   def current_user? user
