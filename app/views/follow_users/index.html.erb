@@ -1,5 +1,7 @@
-<div class="ltt-news-feed">
-  <%= render "pages/left_news_feed", followings: @followings, know_users: @know_users %>
-  <%= render "middle_follow_users", users: @users, type: @type %>
-  <%= render "pages/right_news_feed", popular_images: @popular_images %>
+<div class="ltt-body-content">
+  <div class="ltt-news-feed">
+      <%= render "pages/left_news_feed", followings: @followings, know_users: @know_users %>
+      <%= render "middle_follow_users", users: @users, type: @type %>
+	  <%= render "pages/right_news_feed", popular_images: @popular_images %>
+  </div>
 </div>

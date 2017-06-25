@@ -5,19 +5,30 @@
         <%= link_to t(:title), root_url, class: "navbar-brand page-scroll ltt-title" %>
       </p>
     </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="hidden">
-          <a href="#page-top"></a>
-        </li>
-        <li class="active ltt-header-item" id="_home">
-          <%= link_to t(:home), "#home", class: "page-scroll" %>
-        </li>
-        <li class="ltt-header-item" id="_signout">
-          <%= link_to t("sessions.sign_out"),
-            destroy_user_session_path, method: :delete, class: "page-scroll" %>
-        </li>
-      </ul>
-    </div>
+    <span class="header-right">
+      <li class="hidden">
+        <a href="#page-top"></a>
+      </li>
+
+      <li class="dropdown header-item">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+          title="<%= current_user.name %>">
+          <%= image_tag avatar_profile(current_user), class: "avatar-header" %>
+          <span class="header-user-name">
+            <%= truncate current_user.name, length: Settings.length_name %>
+          </span>
+          <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <%= link_to t("sessions.profile"), current_user %>
+          </li>
+          <li>
+            <%= link_to t("sessions.sign_out"), destroy_user_session_path, method: :delete %>
+          </li>
+        </ul>
+      </li>
+      <div class="clearfix"></div>
+    </span>
   </div>
 </nav>

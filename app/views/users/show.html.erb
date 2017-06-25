@@ -1,0 +1,46 @@
+<div class="ltt-body-content">
+  <div class="user-show">
+    <div class="col-lg-5 col-md-5 col-xs-5 col-sm-5 user-show-left">
+      <div class="user-cover">
+        <%= image_tag "portfolio-1.jpg", class: "img-responsive
+          img-user-cover" %>
+
+        <div class="user-avatar">
+          <%= image_tag avatar_profile(@user), class: "img-responsive
+            img-user-avatar" %>
+        </div>
+
+        <div class="user-name">
+          <%= @user.name %>
+        </div>
+      </div>
+
+      <div class="user-info">
+        <div class="user-form-edit">
+          <%= render "form" , user: @user if current_user.current_user? @user %>
+        </div>
+        <div class="user-form-info">
+          <%= render "info", user: @user%>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-7 col-md-7 col-xs-7 col-sm-7 user-show-right
+      with-padding">
+      <% unless @images.empty? %>
+        <div id="user-show-images">
+          <% @images.each do |image| %>
+            <%= render "images/image", image: image %>
+          <% end %>
+        </div>
+
+        <div id="load-more-user-show-mages" class="load-more-user-show-mages">
+          <%= link_to t("image_action.load_more"), user_path(@user, image_offset:
+            @images.last.id), remote: true %>
+        </div>
+      <% else %>
+        <h3 class="no-content"><%= t "news_feed.no_content" %></h3>
+      <% end %>
+    </div>
+  </div>
+</div>

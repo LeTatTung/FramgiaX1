@@ -1,8 +1,11 @@
 class RegistrationsController < Devise::RegistrationsController
-  before_action :configure_sign_up_params, only: :create
+  
+  def new
+    super
+  end
 
-  def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up) {|u| u.permit :email,
-      :name, :password, :password_confirmation}
+  def create
+    super
+    Profile.create! user: @user
   end
 end
