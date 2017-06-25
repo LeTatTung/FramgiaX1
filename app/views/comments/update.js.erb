@@ -1,0 +1,4 @@
+$('#image-comment-<%= @comment.id %>').show();
+$('#image-comment-edit-form-<%= @comment.id %>').hide();
+$('#image-comment-<%= @comment.id %>')
+  .html('<%= j render "comments/comment_detail", comment: @comment %>');

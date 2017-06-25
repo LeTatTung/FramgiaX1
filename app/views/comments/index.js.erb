@@ -1,6 +1,8 @@
 <% @comments.each do |comment| %>
   $('#images-comments-<%= @image.id %>')
     .append('<%= j render "comment", comment: comment %>');
+  $('#images-comments-<%= @image.id %>')
+    .append('<%= j render "comments/edit_form", comment: comment %>');
 <% end %>
 <% if @last %>
   $('#load-more-image-comments-<%= @image.id %>').hide();

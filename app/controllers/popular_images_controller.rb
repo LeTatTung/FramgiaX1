@@ -2,11 +2,17 @@ class PopularImagesController < ApplicationController
   before_action :load_data_static
 
   def index
-    image_size = Settings.load_more_image_size
+    @image = Image.new
     @categories = Category.all
-    image_offset = params[:image_offset] || 0
-    @images = Image.popular_images.where("id > ?", image_offset)
-      .limit image_size
-    @last = @images.size < image_size ? true : false
+    @images = Image.popular_images
+    unless @images.empty?
+      image_like_offset = params[:image_like_offset] || (@images.first
+        .like_number + 1)
+      image_offset = params[:image_offset] || (@images.first.id + 1)
+      image_size = Settings.load_more_image_size
+      @images = @images.where("like_number <= ? AND id < ?", image_like_offset,
+        image_offset).limit image_size
+      @last = @images.size < Settings.load_more_image_size ? true : false
+    end
   end
 end

@@ -2,16 +2,19 @@
   <div class="images-header">
     <span class="images-header-content">
       <span class="images-image">
-        <%= link_to "#" do %>
+        <%= link_to current_user do %>
           <%= image_tag avatar_profile(current_user), class: "img-responsive
             images-header-avatar" %>
         <% end %>
       </span>
 
       <div class="images-header-info">
-        <h6><%= link_to current_user.name, "#" %></h6>
+        <h6><%= link_to current_user.name, current_user %>
+          <span class="image-post-title">
+            <%= t "image_action.upload.title" %>
+          </span>
+        </h6>
         <small><%= time_ago_in_words image.created_at %></small>
-
         <span class="dropdown header-item images-header-icon">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <%= image_tag "arrow.png", class: "icon" %>
@@ -30,7 +33,7 @@
                 <span>
                   <i class="fa fa-times" aria-hidden="true"></i>
                 </span>
-                <span><%= t "news_feed.like" %></span>
+                <span><%= t "news_feed.delete" %></span>
               </li>
             <% end %>
             <%= link_to "#" do %>
@@ -57,8 +60,7 @@
 
   <div class="images-body">
     <div class="images-body-description">
-      <% if !image.description.blank? &&
-        (image.description.length > Settings.length_description) %>
+      <% if image.description.length > Settings.length_description %>
         <span><%= image.description[0...Settings.length_description] %></span>
         <span class="complete">
           <%= image.description[
@@ -72,13 +74,12 @@
 
     <div class="images-body-address">
       <span><b><%= t "image_label.address" %></b></span>
-      <%= link_to image.address, images_path(address: image.address) %>
+      <%= link_to image.address, "#"%>
     </div>
 
     <div class="images-body-category">
       <span><b><%= t "image_label.category" %></b></span>
-      <%= link_to image.category.name, images_path(
-        category: image.category.id) %>
+      <%= link_to image.category.name, "#"%>
     </div>
     <div class="images-body-image" data-toggle="modal"
       data-target="#images-modal-<%= image.id %>">
@@ -91,17 +92,35 @@
     <span class="images-like">
       <% if current_user.liked image %>
         <%= image_tag "unlike.png", class: "images-like-icon" %>
-        <span class="unlike"><%= t "image_action.unlike" %></span>
+        <span class="unlike"><%= image.likes.size %>
+          <%= t "image_action.unlike" %>
+        </span>
       <% else %>
         <%= image_tag "like.png", class: "images-like-icon" %>
-        <span class="like"><%= t "image_action.like" %></span>
+        <span class="like"><%= image.likes.size %>
+          <%= t "image_action.like" %>
+        </span>
       <% end %>
     </span>
 
     <span class="images-comments">
       <%= image_tag "comment.png", class: "images-comment-icon" %>
+      <span id="comment-size-<%= image.id %>">
+        <%= image.main_comments.size %>
+      </span>
       <%= t "image_action.comment" %>
     </span>
+    <hr>
+  </div>
+
+  <div class="image-comment-form">
+    <%= form_for [image, Comment.new], remote: true do |f| %>
+      <%= image_tag avatar_profile(current_user),
+        class: "img-responsive img-avatar-comment" %>
+      <%= f.text_field :content, placeholder: t("comment.write"),
+        class: "form-control comment-form-content",
+        id: "image-comment-form-content-#{image.id}" %>
+    <% end %>
     <hr>
   </div>
 
@@ -110,6 +129,7 @@
       .limit Settings.load_more_comment_size %>
     <% image_comments.each do |comment| %>
       <%= render "comments/comment", comment: comment %>
+      <%= render "comments/edit_form", image: image, comment: comment %>
     <% end %>
   </div>
   <div id="load-more-image-comments-<%= image.id %>">
@@ -120,4 +140,3 @@
   </div>
   <%= render "images/image_modal", image: image %>
 </div>
-<div id="edit-image-modal-<%= image.id %>" class="modal fade" role="dialog"></div>

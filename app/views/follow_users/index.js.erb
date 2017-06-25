@@ -6,5 +6,5 @@
 <% else %>
   $('#load-more-follow-users')
     .html('<%= link_to t("load_more"), follow_users_path(type: @type,
-    follow_users_offset: @users.last.id - 1), remote: true %>');
+    follow_users_offset: @users.last.id), remote: true %>');
 <% end %>
