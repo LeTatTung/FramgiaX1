@@ -5,13 +5,12 @@
         <%= image_tag avatar_profile(current_user), class: "img-responsive
           avatar-upload" %>
       </span>
-      <div class="upload-images-content" data-toggle="modal"
-        data-target="#images-upload-modal">
-        <%= form_tag "#" do %>
-          <%= text_area_tag :search, params[:search],
-            placeholder: t("search.title"), class: "form-control" %>
-        <% end %>
-      </div>
+      <%= link_to new_image_path, remote: true do %>
+        <div class="upload-images-content">
+          <%= text_area_tag :search, params[:search], placeholder: t("search.title"),
+            class: "form-control" %>
+        </div>
+      <% end %>
     </div>
     <% unless images.empty? %>
       <div id="news-feed-images">
@@ -20,9 +19,8 @@
         <% end %>
       </div>
       <div id="load-more-news-feed" class="load-more-news-feed">
-          <%= link_to t("image_action.load_more"), popular_images_path(
-            image_offset: images.last.id,
-            image_like_offset: images.last.like_number), remote: true %>
+          <%= link_to t("image_action.load_more"), images_path(
+            image_offset: images.last.id), remote: true %>
       </div>
     <% else %>
       <h3 class="no-content"><%= t "news_feed.no_content" %></h3>

@@ -3,13 +3,24 @@ class ImagesController < ApplicationController
   before_action :load_image, except: [:index, :new, :create]
 
   def index
-    @images = current_user.images_news_feed
+    @images = if params[:address]
+      Image.search(params[:address]).order(id: :desc) if params[:address]
+    elsif params[:category]
+      category =  Category.find_by id: params[:category]
+      category.images.order(id: :desc) if category
+    else
+      current_user.images_news_feed
+    end
     unless @images.empty?
-      image_size = Settings.load_more_image_size
       image_offset = params[:image_offset] || (@images.first.id + 1)
       @images = @images.where("id < ?", image_offset)
-        .limit image_size
-      @last = @images.size < image_size ? true : false
+        .limit Settings.load_more_image_size
+      @last = (@images.size < Settings.load_more_image_size) ? true : false
+    end
+
+    respond_to do |format|
+      format.html {load_data_static}
+      format.js
     end
   end
 

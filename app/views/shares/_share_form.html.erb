@@ -1,4 +1,5 @@
-<%= link_to new_image_share_path(image), remote: true do %>
+<% image_share = image.shared_image || image %>
+<%= link_to new_image_share_path(image_share), remote: true do %>
   <%= image_tag "share.png", class: "images-share-icon" %>
   <span id="share-size-<%= image.id %>">
     <%= image.main_shares.size %>

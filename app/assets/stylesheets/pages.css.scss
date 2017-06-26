@@ -2,7 +2,7 @@
 @import "bootstrap";
 @import "font-awesome";
 
-$black-color: #222;
+$black-color: #000;
 $primary-color: #f8f8f8;
 $secondary-color: #e7e7e7;
 $thirddary-color: #423d3d;
@@ -13,14 +13,14 @@ $gray-light: #eee;
 $white-dark: #e9ebee;
 
 .ltt-header {
-  background-color: transparent;
+  background-color: $black-color !important;
   background-position: center center;
   background-repeat: no-repeat;
   border: 0;
 }
 
 .ltt-navbar {
-  background-color: transparent;
+  background-color: $black-color !important;
   border: 0;
   max-height: 100px;
 }
@@ -67,6 +67,7 @@ $white-dark: #e9ebee;
 .ltt-title {
   font-size: 30px;
   padding-top: 5px;
+  margin-left: -200px !important;
 }
 
 .section-heading {
@@ -294,12 +295,12 @@ img::selection {
 }
 
 .navbar-custom {
-  background-color: $black-color;
+  background-color: $black-color !important;
   border-color: transparent;
 
 
   .navbar-brand {
-    color: $yellow-color;
+    color: $white-color;
     font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
     padding: 10px 15px;
   }
@@ -403,7 +404,6 @@ img::selection {
   font-size: 15px;
   height: 50px;
   line-height: 20px;
-  padding: 25px 15px;
 }
 
 .ltt-body-content {

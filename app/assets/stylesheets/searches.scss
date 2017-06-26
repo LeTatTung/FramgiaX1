@@ -1,0 +1,61 @@
+$black-color: #000;
+
+.searches {
+  h2 {
+    padding: 0;
+    padding-top: 5px;
+    margin: 0;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  hr {
+    margin: 0 !important;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important
+  }
+
+  .search-user {
+    width: 100%;
+    padding: 20px;
+    padding-bottom: 0;
+    padding-top: 0;
+
+    .search-user-img {
+      display: blok;
+      float: left;
+      border: 1px solid $black-color;
+
+      .user-img {
+        height: 50px;
+        width: 50px;
+      }
+    }
+
+    .search-user-str {
+      overflow: hidden;
+      vertical-align: middle;
+      line-height: 50px;
+    }
+  }
+
+  .search-address {
+    .search-address-str {
+      padding-left: 100px;
+      padding-top: 100px;
+      color: $black-color;
+    }
+  }
+
+  .search-category {
+    .search-category-str {
+      padding-left: 100px;
+      padding-top: 100px;
+      color: $black-color;
+    }
+  }
+}
+
+.text-black {
+  color: $black-color;
+}

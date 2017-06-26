@@ -81,55 +81,7 @@
       <% end %>
     </div>
 
-    <%= render "shares/image", image: image  %>
+    <%= render "searches/image", image: image  %>
     <hr>
   </div>
-
-  <div class="images-footer">
-    <span class="images-like" id="image-like-<%= image.id %>">
-      <%= render "likes/like_form", image: image %>
-    </span>
-
-    <span class="images-comments">
-      <%= image_tag "comment.png", class: "images-comment-icon" %>
-      <span id="comment-size-<%= image.id %>">
-        <%= image.main_comments.size %>
-      </span>
-      <span><%= t "image_action.comment" %></span>
-    </span>
-
-    <span class="images-share" id="image-share-<%= image.id %>">
-      <%= render "shares/share_form", image: image %>
-    </span>
-    <hr>
-  </div>
-
-  <div class="image-comment-form">
-    <%= form_for [image, Comment.new], remote: true do |f| %>
-      <%= image_tag avatar_profile(current_user),
-        class: "img-responsive img-avatar-comment" %>
-      <%= f.text_field :content, placeholder: t("comment.write"),
-        class: "form-control comment-form-content",
-        id: "image-comment-form-content-#{image.id}" %>
-    <% end %>
-    <hr>
-  </div>
-
-  <div class="images-comments" id="images-comments-<%= image.id %>">
-    <% image_comments = image.main_comments.offset(0)
-      .limit Settings.load_more_comment_size %>
-    <% image_comments.each do |comment| %>
-      <%= render "comments/comment", comment: comment %>
-      <%= render "comments/edit_form", image: image, comment: comment %>
-    <% end %>
-  </div>
-  <div id="load-more-image-comments-<%= image.id %>">
-    <% unless image_comments.empty? %>
-      <%= link_to t("comment.load_more"), image_comments_path(image,
-        comment_offset: image_comments.last.id), remote: true %>
-    <% end %>
-  </div>
-  <%= render "images/image_modal", image: image %>
-</div>
-<div id="edit-image-modal-<%= image.id %>" class="modal fade" role="dialog">
 </div>
