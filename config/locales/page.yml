@@ -12,7 +12,12 @@ en:
   nice_to: It's Nice To Meet You
   load_more: "Load more"
   suggest_status: "What's on your mind ?"
-  search_title: "Search SocialPics"
+  search:
+    title: "Search SocialPics"
+    user: "User"
+    image: "Image"
+    address: "Address"
+    category: "Category"
   news_feed:
     edit: "Edit"
     delete: "Delete"

@@ -4,9 +4,11 @@ $black-color: #000;
 $blue-light: #428bca;
 
 .images {
-  box-shadow: 1px 2px 4px 1px $gray-light !important;
-  padding-bottom: 10px;
-  padding-top: 10px;
+  box-shadow: 1px 2px 8px 1px $gray-light !important;
+  padding: 10px;  
+  background: white;
+  border-radius: 5px;
+  margin-bottom: 20px;
 
   .images-modal {
     margin-top: 50px;
