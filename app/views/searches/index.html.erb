@@ -1,0 +1,10 @@
+<div class="ltt-body-content">
+  <div class="ltt-news-feed">
+    <%= render "pages/left_news_feed", followings: @followings, know_users: @know_users %>
+    <%= render "middle_searches" %>
+    <%= render "pages/right_news_feed", popular_images: @popular_images %>
+
+    <div id="images-upload-modal" class="modal fade" role="dialog">
+    </div>
+  </div>
+</div>

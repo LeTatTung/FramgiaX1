@@ -38,10 +38,12 @@
 
     <div class="images-body-category">
       <span><b><%= t "image_label.category" %></b></span>
-      <%= link_to image.category.name, images_path(category: image.category.id) %>
+      <%= link_to image.category.name, images_path(
+        category: image.category.id) %>
     </div>
     <div class="images-body-image">
-      <%= link_to image.shared_image do %>
+      <% share_image = image.shared_image || image %>
+      <%= link_to share_image do %>
         <%= image_tag image.image.url, class: "img-responsive images-show" %>
       <% end %>
     </div>

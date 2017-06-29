@@ -1,9 +1,25 @@
 <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top ltt-navbar">
   <div class="container">
-    <div class="navbar-header page-scroll">
-      <p id="title", class="navbar-brand page-scroll">
-        <%= link_to t(:title), root_url, class: "navbar-brand page-scroll ltt-title" %>
-      </p>
+    <div class="header-left navbar-header page-scroll col-md-9">
+      <ul class="nav navbar-nav">
+        <li id="title" class="navbar-brand page-scroll">
+          <%= link_to t(:title), root_url, class: "navbar-brand page-scroll ltt-title" %>
+        </li>
+        <li class="header-search">
+          <%= form_tag searches_path, method: :get do %>
+            <span>
+              <%= text_field_tag :search, params[:search],
+                placeholder: t("search.title"), class: "form-control
+                images-search", id: "images-search" %>
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </span>
+          <% end %>
+          <span class="search-results">
+            <ul class="results">
+            </ul>
+          </span>
+        </li>
+      </ul>
     </div>
     <span class="header-right">
       <li class="hidden">

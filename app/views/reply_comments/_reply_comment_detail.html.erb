@@ -38,7 +38,7 @@
             <span>-</span>
           <% end %>
           <span class="reply-comments">
-            <%= link_to "image_action.reply_comment", new_comment_reply_comment_path(comment,
+            <%= link_to t("image_action.reply_comment"), new_comment_reply_comment_path(comment,
               parent_id: comment.parent.id), remote: true %>
           </span>
           <span>

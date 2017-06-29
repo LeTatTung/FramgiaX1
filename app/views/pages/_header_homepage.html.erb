@@ -1,9 +1,21 @@
 <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top ltt-navbar">
-  <div class="container">
-    <div class="navbar-header page-scroll">
-      <p id="title", class="navbar-brand page-scroll">
-        <%= link_to t(:title), root_url, class: "navbar-brand page-scroll ltt-title" %>
-      </p>
+  <div class="container header-new">
+    <div class="header-left navbar-header page-scroll">
+      <ul class="nav navbar-nav">
+        <li id="title" class="navbar-brand page-scroll">
+          <%= link_to t(:title), root_url, class: "navbar-brand page-scroll ltt-title" %>
+        </li>
+        <li class="header-search">
+          <%= form_tag searches_path, method: :get do %>
+            <span>
+              <%= text_field_tag :search, params[:search],
+                placeholder: t("search.title"), class: "form-control
+                images-search", id: "images-search" %>
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </span>
+          <% end %>
+        </li>
+      </ul>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
@@ -12,9 +24,6 @@
         </li>
         <li class="active ltt-header-item" id="_home">
           <%= link_to t(:home), "#home", class: "page-scroll" %>
-        </li>
-        <li class="ltt-header-item" id="_image_share">
-          <%= link_to t(:image_share), "#image_share", class: "page-scroll" %>
         </li>
         <% if user_signed_in? %>
           <li class="ltt-header-item" id="_signout">

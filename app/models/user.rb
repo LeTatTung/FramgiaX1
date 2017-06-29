@@ -119,4 +119,11 @@ class User < ApplicationRecord
     rescue => e
     return nil
   end
+
+  class << self
+    def search data
+      data = data.downcase
+      User.where "lower(name) LIKE ?", "%#{data}%"
+    end
+  end
 end

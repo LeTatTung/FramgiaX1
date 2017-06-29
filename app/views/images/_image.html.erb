@@ -79,12 +79,12 @@
 
     <div class="images-body-address">
       <span><b><%= t "image_label.address" %></b></span>
-      <%= link_to image.address, "#" %>
+      <%= link_to image.address, images_path(address: image.address) %>
     </div>
 
     <div class="images-body-category">
       <span><b><%= t "image_label.category" %></b></span>
-      <%= link_to image.category.name, "#" %>
+      <%= link_to image.category.name, images_path(category: image.category.id) %>
     </div>
     <div class="images-body-image" data-toggle="modal"
       data-target="#images-modal-<%= image.id %>">

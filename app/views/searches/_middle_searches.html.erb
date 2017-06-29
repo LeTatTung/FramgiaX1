@@ -1,0 +1,75 @@
+<div class="col-md-6 col-sm-6 col-xs-6 news-feed-middle">
+  <div class="news-feed-middle-content with-padding searches">
+    <div class="search-image">
+      <h2><%= t "search.image" %></h2>
+      <ul>
+        <% @images.each do |image| %>
+          <li>
+            <% if image.share_id %>
+              <%= render "searches/share_image", image: image %>
+            <% else %>
+              <%= render "searches/image", image: image %>
+            <% end %>
+          </li>
+        <% end %>
+        <div class="clearfix"></div>
+      </ul>
+      <hr>
+    </div>
+
+    <div class="search-user">
+      <h2><%= t "search.user" %></h2>
+      <ul>
+        <% @users.each do |user| %>
+          <%= link_to user do %>
+            <li class="col-md-6">
+              <span class="search-user-img">
+                <%= image_tag avatar_profile(user),
+                  class: "img-responsive user-img" %>
+              </span>
+              <span class="search-user-str">
+                <%= user.name %>
+              </span>
+              <div class="clearfix"></div>
+            </li>
+          <% end %>
+        <% end %>
+        <div class="clearfix"></div>
+      </ul>
+      <hr>
+    </div>
+
+    <div class="search-address">
+      <h2><%= t "search.address" %></h2>
+      <ul>
+        <% @addresses.each do |address| %>
+          <%= link_to images_path(address: address) do %>
+            <li class="col-md-6">
+              <span class="search-address-str">
+                <%= address %>
+              </span>
+            </li>
+          <% end %>
+        <% end %>
+        <div class="clearfix"></div>
+      </ul>
+      <hr>
+    </div>
+
+    <div class="search-category">
+      <h2><%= t "search.category" %></h2>
+      <ul>
+        <% @categories.each do |category| %>
+          <%= link_to images_path(category: category.id) do %>
+            <li class="col-md-6">
+              <span class="search-category-str">
+                <%= category.name %>
+              </span>
+            </li>
+          <% end %>
+        <% end %>
+        <div class="clearfix"></div>
+      </ul>
+    </div>
+  </div>
+</div>

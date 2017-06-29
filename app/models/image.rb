@@ -42,4 +42,13 @@ class Image < ApplicationRecord
     rescue => e
     return false
   end
+
+  class << self
+    def search data
+      data = data.downcase
+      Image.where "lower(description) LIKE ? OR
+        lower(share_description) LIKE ? OR
+        lower(address) LIKE ?", "%#{data}%", "%#{data}%", "%#{data}%"
+    end
+  end
 end

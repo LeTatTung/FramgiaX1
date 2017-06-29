@@ -20,4 +20,5 @@ Rails.application.routes.draw do
     resources :book_marks, only: :index
     resources :relationships, only: [:create, :destroy]
   end
+  resources :searches, only: :index
 end
